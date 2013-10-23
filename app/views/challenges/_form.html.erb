@@ -1,0 +1,17 @@
+<%= form_for @challenge do |f| %>
+  <p>
+	  <%= f.label :title %>:
+	  <%= f.text_field :title %><br />
+	  <%= f.label :start_time %>:
+	  <%= f.text_field :start_time %><br />
+	  <%= f.label :end_time %>:
+	  <%= f.text_field :end_time %><br />
+	  <%= f.label :description %>:
+	  <%= f.text_field :description %><br />
+  </p>
+  <%= f.fields_for :webpages do |builder| %>
+  		<%= render 'webpage_fields', :f => builder %>
+	<% end %>
+  <%= f.submit "Submit" %>
+
+<% end %>

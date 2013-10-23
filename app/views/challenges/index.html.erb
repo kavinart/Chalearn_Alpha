@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<th>Challenge</th>
+		<th>Short description</th>
+	</tr>
+	<% for challenge in @challenges %>
+		<tr>
+			<td><%= challenge.title %></td>
+			<td><%= challenge.description %></td>
+			<td><%= link_to "Show", challenge %></td>
+			<td><%= link_to "Edit", edit_challenge_path(challenge) %></td>
+			<td><%= link_to "Delete", challenge, :confirm => 'Are you sure?', :method => :delete %> </td>
+		</tr>
+	<% end %> 
+</table>
+
+<%= link_to "New Challenge", new_challenge_path %>

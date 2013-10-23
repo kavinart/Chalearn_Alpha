@@ -1,0 +1,18 @@
+<strong> Title </strong><%= @challenge.title %> </br>
+<strong> Start time </strong><%= @challenge.start_time %> </br>
+<strong> End time </strong><%= @challenge.end_time %> </br>
+
+<ul>
+<% for webpage in @challenge.webpages %>
+  <li>
+    <strong> Title: </strong> <%= webpage.title %> </br>
+    <strong> Content: </strong> <%= webpage.web_content %>
+  </li>
+<% end %>
+</ul>
+
+<p>
+  <%= link_to "Edit", edit_challenge_path(@challenge) %> |
+  <%= link_to "Delete", @challenge, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", challenges_path %>
+</p>
