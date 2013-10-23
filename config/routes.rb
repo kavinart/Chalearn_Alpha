@@ -1,6 +1,7 @@
 Db3::Application.routes.draw do
   
   resources :challenges
+  root :to => 'challenges#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
