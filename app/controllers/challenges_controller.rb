@@ -20,7 +20,7 @@ class ChallengesController < ApplicationController
 	def create
 		@challenge = Challenge.new(params[:challenge])
 		if @challenge.save
-			flash[:notice] = "Successfully created the challenge"
+			flash[:notice] = "Successfully created '#{@challenge.title}' challenge"
 			redirect_to @challenge
 		else 
 			render :action => 'new'
@@ -30,7 +30,7 @@ class ChallengesController < ApplicationController
 	def update
 		@challenge = Challenge.find(params[:id])
 		if @challenge.update_attributes(params[:challenge])
-			flash[:notice] = "Successfully updated the challenge"
+			flash[:notice] = "Successfully updated '#{@challenge.title}' challenge"
 			redirect_to @challenge
 		else
 			render :action => 'edit'
