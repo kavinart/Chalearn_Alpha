@@ -1,7 +1,11 @@
 Db3::Application.routes.draw do
   
+  #Handles devise protocols
+  devise_for :users
+
   resources :challenges
   root :to => 'challenges#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

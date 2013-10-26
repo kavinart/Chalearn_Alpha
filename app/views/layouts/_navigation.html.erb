@@ -3,3 +3,47 @@
   <li><%= link_to 'Wizard', new_challenge_path %></li>
   <li><%= link_to 'Your Challenges', challenges_path %></li>
 </ul>
+
+<!--Push everything in this class to the right of navbar-->
+<ul class="nav pull-right">
+
+	<!--Logged in case-->
+	<% if user_signed_in? %>
+	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+
+	<!--Not logged in case-->
+	<% else %>
+	<!--Register Button-->
+	<li><a href="/users/sign_up">Register</a></li>
+	<!--Sign in Dropdown-->
+	<li class="dropdown">
+	  <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+	  
+	  <div class="dropdown-menu" style="padding: 10px;">
+	  <%= form_for("user", :url => user_session_path) do |f| %>
+
+		  <div class="control-group">
+		    <!-- Email -->
+		    <div class="controls">
+		    <div>
+		    <%= f.text_field :email, :placeholder => "Email"%></div>
+		    </div>
+		  </div>
+
+		  <div class="control-group">
+		    <!-- Password -->
+		    <div class="controls">
+		    <div>
+		    <%= f.password_field :password, :placeholder => "Password" %></div>
+		    </div>
+		  </div>
+
+		  <li><%= f.label :remember_me %> <%= f.check_box :remember_me %></li>
+		  <li style="margin-bottom: 10px;"><%= f.submit 'Sign in' %></li>
+		  <li><%= link_to "Forgot your password?", new_password_path('user') %></li>
+	  <% end %>
+	  </div>
+	</li>
+
+	<% end %>
+</ul>
