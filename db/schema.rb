@@ -19,9 +19,8 @@ ActiveRecord::Schema.define(:version => 20131023010836) do
     t.datetime "end_time"
     t.text     "description"
     t.text     "yamlformat"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "challenge_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "webpages", :force => true do |t|

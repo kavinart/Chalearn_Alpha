@@ -37,4 +37,10 @@ class ChallengesController < ApplicationController
 		end
 	end
 
+	def destroy
+		@challenge = Challenge.find(params[:id])
+		@challenge.destroy 
+		flash[:notice] = "Challenge '#{@challenge.title}' deleted."
+		redirect_to challenges_path
+	end
 end
