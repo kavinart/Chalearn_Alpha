@@ -1,4 +1,5 @@
 class ChallengesController < ApplicationController
+	include ChallengesHelper
 	
 	def index
 		@challenges = Challenge.all
@@ -18,6 +19,9 @@ class ChallengesController < ApplicationController
 	end
 
 	def create
+		params[:challenge][:start_time] = ChallengesHelper.convert_date(params[:challenge][:start_time]) 
+		params[:challenge][:end_time] = ChallengesHelper.convert_date(params[:challenge][:end_time])
+
 		@challenge = Challenge.new(params[:challenge])
 		if @challenge.save
 			flash[:notice] = "Successfully created '#{@challenge.title}' challenge"
@@ -28,6 +32,9 @@ class ChallengesController < ApplicationController
 	end
 
 	def update
+		params[:challenge][:start_time] = convert_date params[:challenge][:start_time]
+		params[:challenge][:end_time] = convert_date params[:challenge][:end_time]
+
 		@challenge = Challenge.find(params[:id])
 		if @challenge.update_attributes(params[:challenge])
 			flash[:notice] = "Successfully updated '#{@challenge.title}' challenge"
