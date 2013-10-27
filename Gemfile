@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 2.3.2.2'
 gem 'bootstrap-datepicker-rails'
 gem 'devise'
+gem 'bootstrap-wysihtml5-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

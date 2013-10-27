@@ -1,6 +1,10 @@
 <ul class="nav">
   <li class="navbar-brand"><%= link_to 'ChaLearn', root_path %></li>
-  <li><%= link_to 'Wizard', new_challenge_path %></li>
+  <% if user_signed_in? %>
+  	<li><%= link_to 'Wizard', new_challenge_path %></li>
+  <% else %>
+  	<li><%= link_to 'Wizard', new_user_registration_path %></li>
+  <% end %>
 </ul>
 
 <!--Push everything in this class to the right of navbar-->
@@ -8,12 +12,13 @@
 	<li><%= link_to 'Your Challenges', challenges_path %></li>
 	<!--Logged in case-->
 	<% if user_signed_in? %>
+	<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
 	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 
 	<!--Not logged in case-->
 	<% else %>
 	<!--Register Button-->
-	<li><a href="/users/sign_up">Register</a></li>
+	<li><%= link_to 'Register', new_user_registration_path %></li>
 	<!--Sign in Dropdown-->
 	<li class="dropdown">
 	  <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
@@ -37,7 +42,9 @@
 		    </div>
 		  </div>
 
-		  <li><%= f.label :remember_me %> <%= f.check_box :remember_me %></li>
+	    	<div class = "checkbox inline"><%= f.check_box :remember_me %> <%= f.label :remember_me %>
+	    	</div>
+
 		  <li style="margin-bottom: 10px;"><%= f.submit 'Sign in' %></li>
 		  <li><%= link_to "Forgot your password?", new_password_path('user') %></li>
 	  <% end %>
