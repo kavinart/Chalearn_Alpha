@@ -1,10 +1,30 @@
 <!--Datepicker script-->
 <script type="text/javascript">
 	$(function() { $(".datepicker").datepicker({
-    	format: 'dd/MM/yyyy'
+    	format: 'dd/MM/yyyy',
+      todayHighlight: true,
+      autoclose: true
     }); });
 </script>
 
+<!--Datetimepicker script-->
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker2').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true
+    });
+  });
+</script>
+<!-- <div id="datetimepicker2" class="input-append">
+  <input data-format="MM/dd/yyyy HH:mm:ss PP" type="text"></input>
+  <span class="add-on">
+    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+    </i>
+  </span>
+</div> -->
+
+</script>
 <!-- Wysihtml5 script-->
 <script type="text/javascript">
   $(document).ready(function(){
@@ -13,22 +33,24 @@
     }); });
 </script>
 
+
+
 <%= form_for @challenge do |f| %>
   <p>
 	<%= f.label :title %>
-	<%= f.text_field :title %>
+	<%= f.text_field :title %><br/>
 	<%= f.label :start_time %>
-	<%= f.text_field :start_time, :class => "datepicker" %>
+	<%= f.text_field :start_time, :class => "datepicker", :value => @challenge.end_time.strftime("%d/%B/%Y") %><br/>
 	<%= f.label :end_time %>
-	<%= f.text_field :end_time, :class => "datepicker" %>
+	<%= f.text_field :end_time, :class => "datepicker", :value => @challenge.end_time.strftime("%d/%B/%Y") %><br/>
 	<%= f.label :description %>
-	<%= f.text_field :description %>
+	<%= f.text_field :description %><br/>
 
 	<%= f.hidden_field :user_id, :value => current_user.id %>
-  </p>
+
   <%= f.fields_for :webpages do |builder| %>
   	  <%= render 'webpage_fields', :f => builder %>
 	<% end %>
   <%= f.submit "Submit" , :id => "submit" %>
-
+  </p>
 <% end %>
