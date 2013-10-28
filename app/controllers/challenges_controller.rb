@@ -1,6 +1,10 @@
 class ChallengesController < ApplicationController
 	include ChallengesHelper
 	
+	def self.convert_date(x)
+		return x.gsub!('/',',')
+	end
+	
 	def index
 		@challenges = Challenge.all
 	end 
@@ -19,8 +23,8 @@ class ChallengesController < ApplicationController
 	end
 
 	def create
-		params[:challenge][:start_time] = ChallengesHelper.convert_date(params[:challenge][:start_time]) 
-		params[:challenge][:end_time] = ChallengesHelper.convert_date(params[:challenge][:end_time])
+		params[:challenge][:start_time] = ChallengesHelper.convert_date params[:challenge][:start_time]
+		params[:challenge][:end_time] = ChallengesHelper.convert_date params[:challenge][:end_time]
 
 		@challenge = Challenge.new(params[:challenge])
 		if @challenge.save
