@@ -30,7 +30,7 @@
 		    <!-- Email -->
 		    <div class="controls">
 		    <div>
-		    <%= f.text_field :email, :placeholder => "Email"%></div>
+		    <%= f.text_field :email, :placeholder => "Email", :id => 'drop_user_email' %></div>,
 		    </div>
 		  </div>
 
@@ -38,14 +38,14 @@
 		    <!-- Password -->
 		    <div class="controls">
 		    <div>
-		    <%= f.password_field :password, :placeholder => "Password" %></div>
+		    <%= f.password_field :password, :placeholder => "Password" , :id => 'drop_user_password' %></div>
 		    </div>
 		  </div>
 
 	    	<div class = "checkbox inline"><%= f.check_box :remember_me %> <%= f.label :remember_me %>
 	    	</div>
 
-		  <li style="margin-bottom: 10px;"><%= f.submit 'Sign in' %></li>
+		  <li style="margin-bottom: 10px;"><%= f.submit 'Sign in' , :id => 'drop_sign_in'%></li>
 		  <li><%= link_to "Forgot your password?", new_password_path('user') %></li>
 	  <% end %>
 	  </div>

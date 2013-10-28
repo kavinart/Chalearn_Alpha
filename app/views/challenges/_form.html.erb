@@ -29,6 +29,6 @@
   <%= f.fields_for :webpages do |builder| %>
   	  <%= render 'webpage_fields', :f => builder %>
 	<% end %>
-  <%= f.submit "Submit" %>
+  <%= f.submit "Submit" , :id => "submit" %>
 
 <% end %>

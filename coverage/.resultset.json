@@ -1,0 +1,121 @@
+{
+  "Cucumber Features": {
+    "coverage": {
+      "/home/saasbook/Documents/Chalearn_Beta/app/models/user.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/helpers/challenges_helper.rb": [
+        1,
+        1,
+        0,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/helpers/webpages_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/controllers/challenges_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/models/challenge.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/controllers/webpages_controller.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Documents/Chalearn_Beta/app/models/webpage.rb": [
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1382937013
+  }
+}

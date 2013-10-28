@@ -16,6 +16,17 @@ end
 
 group :development, :test do
  gem 'sqlite3'
+
+#TESTING STUFF
+#ESaas recommended
+ gem 'cucumber-rails'
+ gem 'cucumber-rails-training-wheels'
+ gem 'database_cleaner'
+ gem 'capybara'
+ gem 'launchy'
+ #From Homework 4
+ gem 'rspec-rails'
+ gem 'simplecov'
 end
 
 

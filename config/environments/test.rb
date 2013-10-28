@@ -1,6 +1,21 @@
 Db3::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+
+
+
+ #For Devise to send email for password resets, and confirmations.  
+ config.action_mailer.perform_deliveries = true # Set it to false to disable the email in dev mode
+ config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.delivery_method = :smtp
+ config.action_mailer.default_url_options = { :host => "localhost:3000" }
+ ActionMailer::Base.smtp_settings = {
+                      :address        => "smtp.gmail.com",
+                      :port           => "587",
+                      :authentication => :plain,
+                      :user_name      => "chalearntest@gmail.com",
+                      :password       => "1a3245678"}
+                      
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
