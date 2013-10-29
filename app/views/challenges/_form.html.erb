@@ -38,22 +38,22 @@
 <%= form_for @challenge do |f| %>
   <p>
   <%= f.label :title %>
-  <%= f.text_field :title, :style => "width: 300px;" %><br/>
+  <%= f.text_field :title %><br/>
   
-  <% if @challenge.start_time or @challenge.start_time == nil %>
+  <% if @challenge.start_time == nil or @challenge.end_time == nil %>
   <%= f.label :start_time %>
-  <%= f.text_field :start_time, :style => "width: 300px;", :class => "datepicker" %><br/>
+  <%= f.text_field :start_time, :class => "datepicker" %><br/>
   <%= f.label :end_time %>
-  <%= f.text_field :end_time, :style => "width: 300px;", :class => "datepicker" %><br/>
+  <%= f.text_field :end_time, :class => "datepicker" %><br/>
   <% else %>
   <%= f.label :start_time %>
-  <%= f.text_field :start_time, :style => "width: 300px;", :class => "datepicker", :value => @challenge.start_time.strftime("%d/%B/%Y") %><br/>
+  <%= f.text_field :start_time, :class => "datepicker", :value => @challenge.start_time.strftime("%d/%B/%Y") %><br/>
   <%= f.label :end_time %>
-  <%= f.text_field :end_time, :style => "width: 300px;", :class => "datepicker", :value => @challenge.end_time.strftime("%d/%B/%Y") %><br/>
+  <%= f.text_field :end_time, :class => "datepicker", :value => @challenge.end_time.strftime("%d/%B/%Y") %><br/>
   <% end %>
 
   <%= f.label :description %>
-  <%= f.text_field :description, :style => "width: 300px;" %><br/>
+  <%= f.text_field :description %><br/>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
