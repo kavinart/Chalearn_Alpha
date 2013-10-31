@@ -11,7 +11,7 @@ class ChallengesController < ApplicationController
 
 	def new
 		@challenge = Challenge.new
-		1.times {@challenge.webpages.build}
+		3.times {@challenge.webpages.build}
 	end
 
 	def edit
