@@ -19,8 +19,8 @@
 			<td><%= challenge.created_at %></td>
 			<td><%= challenge.updated_at %></td>
 			<td><%= link_to "Show", challenge %></td>
-			<td><%= link_to "Edit", edit_challenge_path(challenge) %></td>
-			<td><%= link_to "Delete", challenge, :confirm => 'Are you sure?', :method => :delete %> </td>
+			<td><%= link_to "Edit", edit_challenge_path(challenge),:id => "edit_" + challenge.id.to_s%></td>
+			<td><%= link_to "Delete", challenge, :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + challenge.id.to_s%> </td>
 			<% end %>
 		</tr>
 	<% end %> 

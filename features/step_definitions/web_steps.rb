@@ -65,6 +65,17 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
+# Popup step definitions
+When /^I confirm popup with "(.*)"$/ do |value|
+  begin
+    main,popup = page.driver.browser.window_handles
+    within_window(popup) do
+      #click_on("Cancel")
+    end
+  rescue
+  end
+end
+
 # Use this to fill in an entire form with data from a table. Example:
 #
 #   When I fill in the following:

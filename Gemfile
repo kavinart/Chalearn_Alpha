@@ -17,6 +17,7 @@ end
 
 group :development, :test do
  gem 'sqlite3'
+ gem 'selenium-client'
 end
 
 group :test do

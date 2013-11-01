@@ -15,9 +15,6 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/movies'
-    when /^the edit page for "(.*)"/
-      id = Movie.find_by_title($1).id
-      "/movies/#{id}/edit"
       
     when /^the Similar Movies page for "(.*)"/
       id = Movie.find_by_title($1).id
@@ -32,6 +29,9 @@ module NavigationHelpers
     when /^the details page for "(.*)"/
       id = Challenge.find_by_title($1).id
       "/challenges/#{id}"
+    when /^the edit page for "(.*)"/
+      id = Challenge.find_by_title($1).id
+      "/challenges/#{id}/edit"
 
 
     # Add more mappings here.

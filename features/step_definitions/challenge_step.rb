@@ -5,6 +5,28 @@ Given /the following challenges exist/ do |challenges_table|
 	end
 end
 
+Then /the following challenges should be in the database/ do |challenges_table|
+  challenges_table.hashes.each do |challenge|
+    object = Challenge.find_by_title(challenge[:title])
+    puts challenge[:title]
+    puts "object"
+    puts object
+    assert object != nil
+  end
+end
+
+Then /the following challenges should not be in the database/ do |challenges_table|
+  challenges_table.hashes.each do |challenge|
+    object = Challenge.find_by_title(challenge[:title])
+    puts challenge[:title]
+    puts "--"
+    puts object
+    assert object == nil
+  end
+end
+
+
+
 #Assert start_time attribute of a challenge
 Then /the start time of "(.*)" should be "(.*)"/ do |title,start_time|
 	challenge = Challenge.find_by_title(title)
