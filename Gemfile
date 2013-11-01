@@ -17,10 +17,11 @@ end
 
 group :development, :test do
  gem 'sqlite3'
+end
 
-#TESTING STUFF
-#ESaas recommended
- gem 'cucumber-rails'
+group :test do
+ #ESaas recommended
+ gem 'cucumber-rails' 
  gem 'cucumber-rails-training-wheels'
  gem 'database_cleaner'
  gem 'capybara'

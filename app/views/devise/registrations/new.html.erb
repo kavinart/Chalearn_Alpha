@@ -31,7 +31,7 @@
   <div><%= f.label "Workbench ID" %>
   <%= f.text_field :work_id %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Sign up", :id => "submit", :class => "btn btn-primary" %></div>
 <% end %>
 
 Already have an account? <%= render "devise/shared/links" %>
