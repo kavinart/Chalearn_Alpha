@@ -1,6 +1,17 @@
 Db3::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+ #For Devise to send email for password resets, and confirmations.  
+ config.action_mailer.perform_deliveries = true # Set it to false to disable the email in dev mode
+ config.action_mailer.raise_delivery_errors = true
+ config.action_mailer.delivery_method = :smtp
+ config.action_mailer.default_url_options = { :host => "http://rocky-anchorage-3004.herokuapp.com" }
+ ActionMailer::Base.smtp_settings = {
+                      :address        => "smtp.gmail.com",
+                      :port           => "587",
+                      :authentication => :plain,
+                      :user_name      => "chalearntest@gmail.com",
+                      :password       => "1a3245678"}
   # Code is not reloaded between requests
   config.cache_classes = true
 
