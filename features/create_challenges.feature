@@ -23,8 +23,8 @@ Scenario: Create a challenge
     And I fill in "Start time" with "30/October/2013"
     And I fill in "End time" with "31/October/2013"
     And I fill in "Description" with "Model the financial crisis"
-    And I fill in "page title" with "Fed Model"
-    And I fill in "page content" with "<b>KUY</b>"
+    And I fill in "Page title" with "Fed Model"
+    And I fill in "Page content" with "<b>KUY</b>"
     And I press "submit"
 
     Then I should be on the details page for "Finance machine learning"

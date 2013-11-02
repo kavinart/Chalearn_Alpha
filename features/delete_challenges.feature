@@ -28,13 +28,3 @@ Scenario: Tries to delete a challenge and confirm deletion
   | title                   | description   | start_time   | user_id |
   | Flight path             | Optimize cost | 25-Nov-1992  |    1    |
 
-Scenario: Tries to delete a challenge but cancel
-  Given I am on the Chalearn's Challenges page
-  Then I should see "Flight path"
-  When I follow "delete_1"
-  And I confirm popup with "Cancel"
-  Then I should be on the Chalearn's Challenges page
-  And the following challenges should be in the database:
-  | title                   | description   | start_time   | user_id |
-  | Flight path             | Optimize cost | 25-Nov-1992  |    1    |
-  | Brain decoding          | Decode        | 30-Dec-2013  |    2    |
