@@ -1,10 +1,18 @@
 Db3::Application.routes.draw do
-  
   #Handles devise protocols
   devise_for :users
 
+  #CRUD for challenges, users
   resources :challenges
-  root :to => 'challenges#index'
+  resources :users
+  
+  #This will set challenges.index to homepage
+  #root :to => 'challenges#index' 
+
+  get "welcome/index"
+  root :to => 'welcome#index'
+
+  match 'mychallenges/' => 'challenges#mychallenges', :as => :my_challenges
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

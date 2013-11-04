@@ -1,13 +1,22 @@
 class ChallengesController < ApplicationController
 	include ChallengesHelper
 	
+	#Cancan filter
+	load_and_authorize_resource
+
 	def self.convert_date(x)
 		return x.gsub!('/',',')
 	end
 	
+	#Admin access only
 	def index
 		@challenges = Challenge.all
-	end 
+	end
+
+	#Normal user use myindex
+	def mychallenges
+		@challenges = Challenge.all(:limit => 10, :conditions => {:user_id => current_user.id})
+	end
 
 	def new
 		@challenge = Challenge.new
