@@ -4,7 +4,7 @@
     <% if user_signed_in? %>
   	<li><%= link_to 'Wizard', new_challenge_path %></li>
   	<li><%= link_to 'Your Challenges', my_challenges_path %></li>
-  	<li><%= link_to 'All Challenges', challenges_path %></li>
+  	<li><%= link_to 'Admin All Challenges', challenges_path %></li>
   <% else %>
   	<li><%= link_to 'Wizard', new_user_registration_path %></li>
   <% end %>

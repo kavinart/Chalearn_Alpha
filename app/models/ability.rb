@@ -19,9 +19,10 @@ class Ability
 				user_in.try(id) == user.id
 			end
 
-			#Read
-			can :read, Challenge do |challenge|
-					challenge.try(:user_id) == user.id
+			#User can only see their own challenges, 
+			#but cannot get see challenges 
+			can :show, Challenge do |challenge|
+				challenge.try(:user_id) == user.id
 			end
 			
 			#Destroy
