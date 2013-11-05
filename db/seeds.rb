@@ -7,6 +7,14 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Create an admin account for testing
-user = User.create(:email => 'admin@gmail.com', :password => '12345678', :password_confirmation => '12345678', :admin => 1)
+user = User.create(:email => 'admin@gmail.com', :password => '12345678', :password_confirmation => '12345678', :role => 'admin', :approved => 1)
+user.skip_confirmation!
+user.save!
+
+user = User.create(:email => 'mod@gmail.com', :password => '12345678', :password_confirmation => '12345678', :role => 'moderator', :approved => 1)
+user.skip_confirmation!
+user.save!
+
+user = User.create(:email => 'user@gmail.com', :password => '12345678', :password_confirmation => '12345678', :role => 'organizer', :approved => 1)
 user.skip_confirmation!
 user.save!

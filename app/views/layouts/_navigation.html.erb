@@ -12,6 +12,7 @@
     <li><%= link_to 'Manage Challenges', challenges_path %></li>
     <li><%= link_to 'Manage Users', challenges_path %></li>
     <li><%= link_to 'Manage Website', challenges_path %></li>
+    
     <!--Normal user case-->
     <% else %>
   	<li><%= link_to 'Wizard', new_challenge_path %></li>
@@ -30,6 +31,7 @@
 	<!--Not logged in case-->
 	<% else %>
 	<!--Register Button-->
+	<li><%= link_to 'Mod Register', new_user_registration_path %></li>
 	<li><%= link_to 'Register', new_user_registration_path %></li>
 	<!--Sign in Dropdown-->
 	<li class="dropdown">

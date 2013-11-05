@@ -8,12 +8,43 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  attr_accessible :first_name, :last_name, :organization, :work_id, :admin
+  attr_accessible :first_name, :last_name, :organization, :work_id, :role, :approved
 
   has_many :challenges, :dependent => :destroy
 
-  #Check if user is admin
+  def index
+    if params[:approved] == "false"
+      @users = User.find_all_by_approved(false)
+    else
+      @users = User.all
+    end
+  end
+
   def admin?
-    return  read_attribute(:admin) == 1
+    return  read_attribute(:role) == 'admin'
+  end
+
+  def moderator?
+    return  read_attribute(:role) == 'moderator'
+  end
+
+  def organizer?
+    return  read_attribute(:role) == 'organizer'
+  end
+
+  def approved?
+    return read_attribute(:approved)
+  end
+
+  def active_for_authentication? 
+    super && approved? 
+  end 
+
+  def inactive_message 
+    if !approved? 
+      :not_approved 
+    else 
+      super # Use whatever other message 
+    end 
   end
 end
