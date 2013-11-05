@@ -5,12 +5,14 @@ class Ability
 		#Unregistered user(nil) can only create new user
 		if user == nil
 			can :create, User
-			can :read, Challenge
 		#Admin has all powers on all models
 		elsif user.admin?
 			can :manage, :all
 		#Normal registered user
 		else
+			#View public challenges
+			#can :publicchallenges, Challenge
+
 			#Edit
 			can :update, Challenge do |challenge|
 				challenge.try(:user_id) == user.id
@@ -24,7 +26,7 @@ class Ability
 			can :show, Challenge do |challenge|
 				challenge.try(:user_id) == user.id
 			end
-			
+
 			#Destroy
 			can :destroy, Challenge do |challenge|
 				challenge.try(:user_id) == user.id

@@ -18,6 +18,15 @@ class ChallengesController < ApplicationController
 		@challenges = Challenge.all(:limit => 10, :conditions => {:user_id => current_user.id})
 	end
 
+	#All users view public challenges
+	#def publicchallenges
+	#	@challenges = Challenge.all(:limit => 30, :conditions => {:public => 1})
+	#end
+
+	def mychallenges
+		@challenges = Challenge.all(:limit => 10, :conditions => {:user_id => current_user.id})
+	end
+
 	def new
 		@challenge = Challenge.new
 		1.times {@challenge.webpages.build}

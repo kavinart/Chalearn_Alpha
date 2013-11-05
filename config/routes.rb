@@ -13,6 +13,7 @@ Db3::Application.routes.draw do
   root :to => 'welcome#index'
 
   match 'mychallenges/' => 'challenges#mychallenges', :as => :my_challenges
+  #match 'public/' => 'challenges#publicchallenges', :as => :public_challenges
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

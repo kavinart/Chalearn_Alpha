@@ -11,18 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131104080416) do
+ActiveRecord::Schema.define(:version => 20131105032828) do
 
-  create_table "challenges", :force => true do |t|
-    t.string   "title"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.text     "description"
-    t.text     "yamlformat"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
-  end
+# Could not dump table "challenges" because of following StandardError
+#   Unknown type 'bit' for column 'public'
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'bit' for column 'admin'

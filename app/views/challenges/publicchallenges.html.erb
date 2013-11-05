@@ -1,5 +1,5 @@
 <h3>Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></h3>
-<h4>Here are your challenges</h4>
+<h4>Here are the public challenges</h4>
 
 <table class="table table-striped table-bordered table-condensed">
 	<tr>
@@ -22,5 +22,3 @@
 		</tr>
 	<% end %> 
 </table>
-
-<%= link_to "New Challenge", new_challenge_path %>
