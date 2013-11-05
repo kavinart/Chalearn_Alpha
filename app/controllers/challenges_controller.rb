@@ -70,6 +70,10 @@ class ChallengesController < ApplicationController
 		@challenge = Challenge.find(params[:id])
 		@challenge.destroy 
 		flash[:notice] = "Challenge '#{@challenge.title}' deleted."
-		redirect_to challenges_path
+		if current_user.admin?
+			redirect_to challenges_path
+		else
+			redirect_to my_challenges_path
+		end
 	end
 end
