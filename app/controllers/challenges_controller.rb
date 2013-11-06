@@ -20,15 +20,33 @@ class ChallengesController < ApplicationController
 	end
 
 	def getstream
-		file_path = "#{Rails.root}/app/assets/images/logo.png"
-		file_name = "logo.png"
+		# file_path = "#{Rails.root}/app/assets/images/logo.png"
+		# file_name = "logo.png"
 		#begin
-        @test = Zip::File.open("#{Rails.root}/tmp/zipfile_name.zip", Zip::File::CREATE) do |zipfile|
-       		zipfile.add(file_name, file_path)
-       	end
+		challenge = Challenge.find_by_id(2)
+
+		Zip::File.open("#{Rails.root}/tmp/zipfile_name.zip",Zip::File::CREATE) do |zipfile|
+			challenge.webpages.each do |webpage|
+				html_name = webpage.title_html
+				file_path = "#{Rails.root}/tmp/"
+				
+				puts '----------------------------------------'
+				puts html_name
+				puts file_path
+				File.open(file_path + html_name, "w+") do |file|
+					file.write(webpage.web_content)
+				end
+				zipfile.add(html_name,file_path)
+			end
+		end
+
+        # @test = Zip::File.open("#{Rails.root}/tmp/zipfile_name.zip", Zip::File::CREATE) do |zipfile|
+
+       	# 	zipfile.add(file_name, file_path)
+       	# end
        	 
-       	send_data "#{Rails.root}/tmp/zipfile_name.zip", :type => 'application/zip', :filename => "TESTZIP.zip", :x_sendfile => true
-  		File.delete("#{Rails.root}/tmp/zipfile_name.zip")
+       	send_file "#{Rails.root}/tmp/zipfile_name.zip", :type => 'application/zip', :filename => "TESTZIP.zip", :x_sendfile => true
+  		# File.delete("#{Rails.root}/tmp/zipfile_name.zip")
 
        #rescue         
        #end
