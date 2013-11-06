@@ -27,8 +27,8 @@ class ChallengesController < ApplicationController
        		zipfile.add(file_name, file_path)
        	end
        	 
-       	send_data "#{Rails.root}/tmp/zipfile_name.zip", :type => 'application/zip', :filename => "TESTZIP.zip", :x_sendfile => true
-  		File.delete("#{Rails.root}/tmp/zipfile_name.zip")
+       	send_file "#{Rails.root}/tmp/zipfile_name.zip", :type => 'application/zip', :filename => "TESTZIP.zip", :x_sendfile => true
+  		#File.delete("#{Rails.root}/tmp/zipfile_name.zip")
 
        #rescue         
        #end
