@@ -13,6 +13,7 @@
 
 <p>
   <%= link_to "Edit", edit_challenge_path(@challenge) %> |
+  <td><%= link_to "Zip", zip_challenge_path(:id => @challenge.id)%></td> |
   <%= link_to "Delete", @challenge, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", challenges_path %>
 </p>

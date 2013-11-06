@@ -19,41 +19,35 @@ class ChallengesController < ApplicationController
 		@challenges = Challenge.all(:limit => 10, :conditions => {:user_id => current_user.id})
 	end
 
-	def getstream
-		# file_path = "#{Rails.root}/app/assets/images/logo.png"
-		# file_name = "logo.png"
-		#begin
-		challenge = Challenge.find_by_id(2)
+    def getstream
+    	#Challenge
+    	challenge = Challenge.find_by_id(params[:id])
 
-		Zip::File.open("#{Rails.root}/tmp/zipfile_name.zip",Zip::File::CREATE) do |zipfile|
-			challenge.webpages.each do |webpage|
-				html_name = webpage.title_html
-				file_path = "#{Rails.root}/tmp/"
-				
-				puts '----------------------------------------'
-				puts html_name
-				puts file_path
-				File.open(file_path + html_name, "w+") do |file|
-					file.write(webpage.web_content)
-				end
-				zipfile.add(html_name,file_path)
-			end
-		end
+    	#Path parameters
+    	file_path = "#{Rails.root}/tmp/zip_tmp"
+		zip_name = challenge.id.to_s + 'tmp.zip'
 
-        # @test = Zip::File.open("#{Rails.root}/tmp/zipfile_name.zip", Zip::File::CREATE) do |zipfile|
+		#Creating html and zip files
+		Zip::File.open(file_path + zip_name,Zip::File::CREATE) do |zipfile|
+	        challenge.webpages.each do |webpage|
+	            html_name = webpage.title_html
+	            File.open(file_path + html_name, "w+") do |file|
+	                    file.write(webpage.web_content)
+	            end
 
-       	# 	zipfile.add(file_name, file_path)
-       	# end
-       	 
-       	send_file "#{Rails.root}/tmp/zipfile_name.zip", :type => 'application/zip', :filename => "TESTZIP.zip", :x_sendfile => true
-  		# File.delete("#{Rails.root}/tmp/zipfile_name.zip")
-
-       #rescue         
-       #end
-     end
-
-
-
+	            zipfile.add(html_name,file_path + html_name)
+        	end
+        end
+        zip_file = File.read(file_path + zip_name)
+        send_data zip_file, :filename => challenge.title + '.zip', :x_sendfile => true
+    	
+    	#Data cleanup
+      	challenge.webpages.each do |webpage|
+      		html_name = webpage.title_html
+      		File.delete(file_path + html_name)
+      	end
+      	File.delete(file_path + zip_name)
+	end
 
 	#All users view public challenges
 	#def publicchallenges
@@ -62,7 +56,7 @@ class ChallengesController < ApplicationController
 	
 	def new
 		@challenge = Challenge.new
-		1.times {@challenge.webpages.build}
+		3.times {@challenge.webpages.build}
 	end
 
 	def edit

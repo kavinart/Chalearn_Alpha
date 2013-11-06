@@ -60,11 +60,16 @@ class Ability
 				user_in.try(id) == user.id
 			end
 
-			#Create
+			#Create a new challenge
 			can :create, Challenge
 
 			#Access my challenge page
 			can :mychallenges, Challenge
+
+			#Create zip of his own challenge
+			can :getstream, Challenge do |challenge|
+				challenge.try(:user_id) == user.id
+			end
 		end
 	end
 end
