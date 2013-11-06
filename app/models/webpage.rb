@@ -5,5 +5,8 @@ class Webpage < ActiveRecord::Base
   def title_and_html_to_yaml
  	self.title + ': ' + self.title.downcase.gsub(/\s+/,"_") + '.html'
   end
-
+  def title_html
+  	self.title.downcase.gsub(/\s+/,"_")
+  end
+  
 end

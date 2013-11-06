@@ -20,6 +20,9 @@
         <div class="content">
            <div class="row">
             <div class="span12">
+              <% if flash[:notice] %>
+                <%= flash[:notice] %>
+              <% end %>
               <%= yield %>
             </div>
           </div>

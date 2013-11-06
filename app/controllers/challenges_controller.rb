@@ -1,5 +1,6 @@
 class ChallengesController < ApplicationController
 	include ChallengesHelper
+	require 'zip'
 	
 	#Cancan filter
 	load_and_authorize_resource
@@ -17,6 +18,24 @@ class ChallengesController < ApplicationController
 	def mychallenges
 		@challenges = Challenge.all(:limit => 10, :conditions => {:user_id => current_user.id})
 	end
+
+	def getstream
+		file_path = "#{Rails.root}/app/assets/images/logo.png"
+		file_name = "logo.png"
+		#begin
+        @test = Zip::File.open("#{Rails.root}/tmp/zipfile_name.zip", Zip::File::CREATE) do |zipfile|
+       		zipfile.add(file_name, file_path)
+       	end
+       	 
+       	send_data "#{Rails.root}/tmp/zipfile_name.zip", :type => 'application/zip', :filename => "TESTZIP.zip", :x_sendfile => true
+  		File.delete("#{Rails.root}/tmp/zipfile_name.zip")
+
+       #rescue         
+       #end
+     end
+
+
+
 
 	#All users view public challenges
 	#def publicchallenges

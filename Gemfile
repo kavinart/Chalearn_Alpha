@@ -7,6 +7,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'bootstrap-wysihtml5-rails'
 gem 'cancan'
+gem 'rubyzip'
 gem 'pg'
 
 # Bundle edge Rails instead:
