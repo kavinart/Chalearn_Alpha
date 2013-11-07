@@ -17,3 +17,8 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-wysihtml5
+
+var remove_webpage = function(link) {
+	$(link).prev("input[type=hidden]").val(true);
+	$(link).parent().fadeOut();
+}

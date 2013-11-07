@@ -1,6 +1,8 @@
-<%= f.label :title, "Page title"%>
-<%= f.text_field :title , :id => 'Page title'%><br />
-<%= f.label :web_content, "Page content" %>
-<%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 ,:id => 'Page content'%><br/>
-<%= f.label :_destory, "Remove Webpage" %>
-<%= f.check_box :_destroy %> <br/><br/>
+<p class="fields">	
+	<%= f.label :title, "Page title"%>
+	<%= f.text_field :title , :id => 'Page title'%><br />
+	<%= f.label :web_content, "Page content" %>
+	<%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 ,:id => 'Page content'%><br/>
+	<%= f.hidden_field :_destroy %>
+	<%= link_to_function "Remove", "remove_webpage(this)" %>
+</p>
