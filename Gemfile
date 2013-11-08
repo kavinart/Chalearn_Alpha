@@ -9,6 +9,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'cancan'
 gem 'rubyzip'
 gem 'pg'
+gem 'haml'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

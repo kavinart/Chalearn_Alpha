@@ -1,6 +1,6 @@
 Db3::Application.routes.draw do
   #Handles devise protocols
-  devise_for :users
+  devise_for :users, :path_prefix => 'd'
 
   #CRUD for challenges, users
   resources :challenges
