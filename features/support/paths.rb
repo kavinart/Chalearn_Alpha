@@ -13,17 +13,10 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the home\s?page$/
-      '/movies'
-      
-    when /^the Similar Movies page for "(.*)"/
-      id = Movie.find_by_title($1).id
-      "/movies/#{id}/same_director"
-
-    when /^the (Chalearn )?home\s?page$/ then '/movies'
-
-    when /^the Chalearn's Challenges page/
+    when /^the challenges page/
         challenges_path
+    when /^the mychallenges page/
+        my_challenges_path
     when /^the New Challenge page/
         new_challenge_path
     when /^the details page for "(.*)"/

@@ -16,10 +16,8 @@ Background: challenges and organizers have been added to the database
   | Flight path4             | Optimize cost | 25-Nov-1992  |    1    |
   | Flight path5             | Optimize cost | 25-Nov-1992  |    5    |
 
-  And I am on the Chalearn's Challenges page
-
 Scenario: View only my own past challenges
-    Given I am on the Chalearn's Challenges page
+    Given I am on the mychallenges page
 
     Then I should see "Flight path1"
     And I should see "Flight path4"

@@ -2,6 +2,12 @@ class Ability
 	include CanCan::Ability
 	def initialize(user)
 
+		if user != nil
+			puts user.id
+			puts user.role
+		else
+			puts "USER NIL"
+		end
 		#Unregistered user(nil) can only create new user
 		if user == nil
 			can :create, User

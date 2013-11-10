@@ -13,10 +13,9 @@ Background: challenges and organizers have been added to the database
   | Flight path             | Optimize cost | 25-Nov-1992  |    1    |
   | Brain decoding          | Decode        | 30-Dec-2013  |    2    |
 
-  And I am on the Chalearn's Challenges page
 
 Scenario: Tries to delete a challenge and confirm deletion
-  Given I am on the Chalearn's Challenges page
+  Given I am on the the mychallenges page
   Then I should see "Flight path"
   When I follow "delete_1"
   And I confirm popup with "OK"

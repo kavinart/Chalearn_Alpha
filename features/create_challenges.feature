@@ -12,10 +12,10 @@ Background: challenges and organizers have been added to the database
   | title                   | description   | start_time   | user_id |
   | Flight path             | Optimize cost | 25-Nov-1992  |    1    |
 
-  And I am on the Chalearn's Challenges page
+  And I am on the mychallenges page
 
 Scenario: Create a challenge
-    Given I am on the Chalearn's Challenges page
+    Given I am on the mychallenges page
     When I follow "New Challenge"
     Then I should be on the New Challenge page
 
