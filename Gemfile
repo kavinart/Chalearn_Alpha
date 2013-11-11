@@ -33,6 +33,7 @@ group :test do
  #From Homework 4
  gem 'rspec-rails'
  gem 'simplecov'
+ gem 'factory_girl_rails'
 end
 
 

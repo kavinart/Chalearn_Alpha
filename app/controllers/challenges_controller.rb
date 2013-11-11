@@ -16,6 +16,12 @@ class ChallengesController < ApplicationController
 
 	#Normal user use myindex
 	def mychallenges
+		puts "------------------"
+		# puts session[:users]
+		puts current_user
+		#puts current_user.id
+		puts "@@@@@@@@@@@@@@@@@@"
+
 		@challenges = Challenge.all(:limit => 10, :conditions => {:user_id => current_user.id})
 	end
 

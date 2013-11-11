@@ -2,18 +2,31 @@ Given /^I am not authenticated$/ do
   visit('/users/sign_out') # ensure that at least
 end
 
+# Given /^I am a new, authenticated user$/ do
+#   email = 'testing@man.net'
+#   password = 'secretpass'
+#   user = User.create(:email => email, :password => password, :password_confirmation => password, :role => 'organizer')
+#   user.skip_confirmation!
+#   user.save!
+#   visit '/d/users/sign_in'
+
+#   fill_in "user_email", :with => email
+#   fill_in "user_password", :with => password
+#   click_button "user_commit"
+# end
+
 Given /^I am a new, authenticated user$/ do
-  email = 'testing@man.net'
-  password = 'secretpass'
-  user = User.create(:email => email, :password => password, :password_confirmation => password, :role => 'organizer')
+  email = 'admin@test.com'
+  password = '12345678'
+  role = 'admin'
+  user = FactoryGirl.create(:user, :email => email, :password => password, :password_confirmation => password, :role => role)
   user.skip_confirmation!
   user.save!
-  visit '/'
+  visit '/d/users/sign_in'
 
-  fill_in "drop_user_email", :with => email
-  fill_in "drop_user_password", :with => password
-  click_button "drop_sign_in"
-  visit '/mychallenges'
+  fill_in "user_email", :with => email
+  fill_in "user_password", :with => password
+  click_button "user_commit"
 end
 
 Given /^I am a new, authenticated admin$/ do
