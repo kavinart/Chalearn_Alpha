@@ -35,15 +35,20 @@ Given /^I am a new, authenticated admin$/ do
   user = User.create(:email => email, :password => password, :password_confirmation => password, :role => 'admin')
   user.skip_confirmation!
   user.save!
+  @user = user
   
   visit '/d/users/sign_in'
 
   fill_in "drop_user_email", :with => email
   fill_in "drop_user_password", :with => password
   click_button "drop_sign_in"
-
 end
 
+When /kuy/ do
+  puts "--"
+  puts @user
+  puts "@@"
+end
 
 
 # Make sure that one string (regexp) occurs before or after another one
