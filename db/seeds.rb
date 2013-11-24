@@ -26,3 +26,4 @@ user.save
 user = User.new(:email => 'user3@gmail.com', :password => '12345678', :password_confirmation => '12345678', :role => 'organizer')
 user.skip_confirmation!
 user.save
+

@@ -23,5 +23,4 @@ Scenario: Delete all the challenges in the database
 
   And I should see "Brain decoding"
   And I should see "Cure"
-  Then show me the page
   And I should not see "Optimize cost"
