@@ -4,7 +4,9 @@ Db3::Application.routes.draw do
   devise_for :users
 
   resources :challenges
-  root :to => 'challenges#index'
+
+  get "welcome/index"
+  root :to => 'welcome#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

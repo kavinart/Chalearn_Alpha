@@ -16,6 +16,8 @@
         null,
         1,
         null,
+        null,
+        null,
         null
       ],
       "/home/saasbook/Desktop/Chalearn_Alpha/app/controllers/application_controller.rb": [
@@ -54,6 +56,12 @@
         null,
         1,
         10,
+        0,
+        0,
+        null,
+        10,
+        10,
+        null,
         null,
         null,
         1,
@@ -125,8 +133,14 @@
         null,
         null,
         null
+      ],
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/controllers/welcome_controller.rb": [
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1385256748
+    "timestamp": 1385260247
   }
 }
