@@ -7,9 +7,33 @@ class ChallengesController < ApplicationController
 	
 	def index
 		if current_user.role ==  'admin' || current_user.role == 'moderator'
-			@challenges = Challenge.all
+			if params[:sort] == 'title'
+				@challenges = Challenge.find(:all,:order => 'LOWER(title)')
+			elsif params[:sort] == 'start_time'
+				@challenges = Challenge.find(:all,:order => 'start_time')
+			elsif params[:sort] == 'end_time'
+				@challenges = Challenge.find(:all,:order => 'end_time')
+			elsif params[:sort] == 'created_at'
+				@challenges = Challenge.find(:all,:order => 'created_at')
+			elsif params[:sort] == 'updated_at'
+				@challenges = Challenge.find(:all,:order => 'updated_at')
+			else
+				@challenges = Challenge.all
+			end
 		else
-			@challenges = current_user.challenges
+			if params[:sort] == 'title'
+				@challenges = Challenge.find(:all,:order => 'LOWER(title)')
+			elsif params[:sort] == 'start_time'
+				@challenges = Challenge.find(:all,:order => 'start_time')
+			elsif params[:sort] == 'end_time'
+				@challenges = Challenge.find(:all,:order => 'end_time')
+			elsif params[:sort] == 'created_at'
+				@challenges = Challenge.find(:all,:order => 'created_at')
+			elsif params[:sort] == 'updated_at'
+				@challenges = Challenge.find(:all,:order => 'updated_at')
+			else
+				@challenges = current_user.challenges
+			end		
 		end
 	end 
 
