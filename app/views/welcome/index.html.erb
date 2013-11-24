@@ -1,0 +1,9 @@
+<h1>Welcome to Charlearn</h1>
+<% if user_signed_in? %>
+<p>Your email: <%= current_user.email %></p>
+<p>Your name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+<p>Your account status: <%= current_user.role %></p>
+
+<% else %>
+<p>You are not logged in</p>
+<% end %>

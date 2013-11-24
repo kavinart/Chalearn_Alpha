@@ -5,10 +5,12 @@ end
 Given /^I am a new, authenticated user$/ do
   email = 'testing@man.net'
   password = 'secretpass'
-  user = User.create(:email => email, :password => password, :password_confirmation => password)
+  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'organizer')
   user.skip_confirmation!
   user.save!
-  
+  if user == nil
+    puts "TEST"
+  end
   visit '/users/sign_in'
 
   fill_in "drop_user_email", :with => email

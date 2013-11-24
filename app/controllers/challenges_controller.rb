@@ -6,7 +6,11 @@ class ChallengesController < ApplicationController
 	end
 	
 	def index
-		@challenges = Challenge.all
+		if current_user.role ==  'admin' || current_user.role == 'moderator'
+			@challenges = Challenge.all
+		else
+			@challenges = current_user.challenges
+		end
 	end 
 
 	def new
