@@ -1,7 +1,11 @@
 {
   "Cucumber Features": {
     "coverage": {
+<<<<<<< HEAD
       "/home/saasbook/Chalearn_Alpha/app/models/user.rb": [
+=======
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/models/user.rb": [
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
         1,
         null,
         null,
@@ -18,7 +22,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/saasbook/Chalearn_Alpha/app/controllers/application_controller.rb": [
+=======
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/controllers/application_controller.rb": [
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
         1,
         1,
         1,
@@ -26,11 +34,19 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/saasbook/Chalearn_Alpha/app/helpers/application_helper.rb": [
         1,
         null
       ],
       "/home/saasbook/Chalearn_Alpha/app/helpers/challenges_helper.rb": [
+=======
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/helpers/challenges_helper.rb": [
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
         1,
         1,
         4,
@@ -40,11 +56,19 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/saasbook/Chalearn_Alpha/app/helpers/webpages_helper.rb": [
         1,
         null
       ],
       "/home/saasbook/Chalearn_Alpha/app/controllers/challenges_controller.rb": [
+=======
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/helpers/webpages_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/controllers/challenges_controller.rb": [
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
         1,
         1,
         null,
@@ -103,7 +127,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/saasbook/Chalearn_Alpha/app/models/challenge.rb": [
+=======
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/models/challenge.rb": [
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
         1,
         1,
         1,
@@ -111,11 +139,19 @@
         2,
         null
       ],
+<<<<<<< HEAD
       "/home/saasbook/Chalearn_Alpha/app/controllers/webpages_controller.rb": [
         1,
         null
       ],
       "/home/saasbook/Chalearn_Alpha/app/models/webpage.rb": [
+=======
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/controllers/webpages_controller.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Desktop/Chalearn_Alpha/app/models/webpage.rb": [
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
         1,
         1,
         1,
@@ -127,6 +163,10 @@
         null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1385258575
+=======
+    "timestamp": 1385256748
+>>>>>>> 86c8d578b9e87dabdf029064883efff9d9f3d9e1
   }
 }
