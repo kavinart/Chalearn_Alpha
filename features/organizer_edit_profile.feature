@@ -7,7 +7,7 @@ Feature: users have the ability to edit their profile
 
 Background: challenges and organizers have been added to the database
   
-  Given I am a new, authenticated user
+  Given I am a new, authenticated user with full profile
   And I follow "Edit Profile"
 
 Scenario: Edit profile

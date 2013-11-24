@@ -3,6 +3,32 @@ Given /^I am not authenticated$/ do
 end
 
 Given /^I am a new, authenticated user$/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'user')
+  user.skip_confirmation!
+  user.save!
+  visit '/users/sign_in'
+
+  fill_in "drop_user_email", :with => email
+  fill_in "drop_user_password", :with => password
+  click_button "drop_sign_in"
+
+end
+
+Given /^I am a new, authenticated moderator$/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'moderator')
+  user.skip_confirmation!
+  user.save!
+  visit '/users/sign_in'
+
+  fill_in "drop_user_email", :with => email
+  fill_in "drop_user_password", :with => password
+  click_button "drop_sign_in"
+end
+Given /^I am a new, authenticated user with full profile$/ do
 
   email = 'ryo.miyaichi@arsenal.co.uk'
   password = '12345678'
@@ -15,9 +41,6 @@ Given /^I am a new, authenticated user$/ do
     :first_name => first, :last_name => last, :organization => organization, :work_id => work_id, :role => role)
   user.skip_confirmation!
   user.save!
-  if user == nil
-    puts "TEST"
-  end
   visit '/users/sign_in'
 
   fill_in "drop_user_email", :with => email
