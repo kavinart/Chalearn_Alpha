@@ -12,6 +12,17 @@ class User < ActiveRecord::Base
 
   has_many :challenges, :dependent => :destroy
   # attr_accessible :title, :body
+  def admin?
+    return  read_attribute(:role) == 'admin'
+  end
+
+  def moderator?
+    return  read_attribute(:role) == 'moderator'
+  end
+
+  def organizer?
+    return  read_attribute(:role) == 'organizer'
+  end
 
   
 end

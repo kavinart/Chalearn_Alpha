@@ -15,11 +15,12 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
-
     when /^the (Chalearn )?home\s?page$/ then '/challenges'
 
     when /^the Chalearn's Challenges page/
         challenges_path
+    when /^the users page/
+        users_path
     when /^the New Challenge page/
         new_challenge_path
     when /^the details page for "(.*)"/

@@ -4,6 +4,7 @@ Db3::Application.routes.draw do
   devise_for :users
 
   resources :challenges
+  resources :users
 
   get "welcome/index"
   root :to => 'welcome#index'

@@ -6,18 +6,18 @@ Feature: list all users
 
 Background: registered users have been added to the database
   
-  Given I am an authenticated admin
+  Given I am a new, authenticated moderator
 
   And the following users exist:
-  | email                   | Bench ID      | Organization | user_id |
-  | test@test.com           | Test          | Test Org     |    1    |
-  | test1@test.com          | Test1         | Test Org 1   |    2    |
+  | email                   | password       | password_confirmation |
+  | test@test.com           | 12345678       | 12345678              |
+  | test1@test.com          | 12345678       | 12345678              |
+  | test2@test.com          | 12345678       | 12345678              |
 
-  And I am on the Chalearn's Admin page
+  And I am on the home page
 
 Scenario: View all the users in the database
-    Given I am on the Chalearn's Admin page
-    And I follow 'list all users'
-    Then I should be on the list users page
-    And I should see 'test@test.com'
-    And I should see 'test1@test.com'
+    Given I am on the users page
+    Then I should see "test@test.com"
+    And I should see "test1@test.com"
+    And I should see "test2@test.com"

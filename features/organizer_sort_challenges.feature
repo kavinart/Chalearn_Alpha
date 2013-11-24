@@ -9,9 +9,9 @@ Background: challenges have been added to database
   Given I am a new, authenticated user
 
   And the following challenges exist:
-  | title                       | start_time           | end_time               |
-  | HIV Challenge               | 03-November-2013     | 03-November-2014       |
-  | Computer Vision Challenge   | 03-November-2012     | 03-October-2014        |
+  | title                       | start_time           | end_time               |  user_id |
+  | HIV Challenge               | 03-November-2013     | 03-November-2014       |     1    |
+  | Computer Vision Challenge   | 03-November-2012     | 03-October-2014        |     1    |
 
   And I am on the Chalearn's Challenges page
 

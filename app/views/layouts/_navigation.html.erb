@@ -1,24 +1,37 @@
-
 <ul class="nav">
   <li><%= link_to 'ChaLearn', root_path%></li>
-    <% if user_signed_in? %>
-  	<li><%= link_to 'Wizard', new_challenge_path %></li>
-  	<li><%= link_to 'Your Challenges', challenges_path %></li>
-  <% else %>
-  	<li><%= link_to 'Wizard', new_user_registration_path %></li>
-  <% end %>
 </ul>
 
 <!--Push everything in this class to the right of navbar-->
 <ul class="nav pull-right">
-	<!--Logged in case-->
+	<!--Logged in case -->
 	<% if user_signed_in? %>
-	<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-	<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+
+	<!--Admin case-->
+    <% if current_user.admin? %>
+    <li><%= link_to 'Manage Challenges', challenges_path %></li>
+    <li><%= link_to 'Manage Users', users_path %></li>
+    <li><%= link_to 'Manage Website', challenges_path %></li>
+    
+    <!--Normal user case-->
+    <% else %>
+  	<li><%= link_to 'Wizard', new_challenge_path %></li>
+  	<li><%= link_to 'Public Challenges', challenges_path  %></li>
+  	<li><%= link_to 'My Challenges', challenges_path %></li>
+  	<% end %>
+  	<li class="dropdown">
+		<a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= current_user.email %><strong class="caret"></strong></a>
+	  
+	  	<div class="dropdown-menu">
+	  	<ul><%= link_to 'Edit Profile', edit_user_registration_path %></ul>
+	  	<ul><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></ul>
+	  	</div>
+	 </li>
 
 	<!--Not logged in case-->
 	<% else %>
 	<!--Register Button-->
+	<li><%= link_to 'Mod Register', new_user_registration_path %></li>
 	<li><%= link_to 'Register', new_user_registration_path %></li>
 	<!--Sign in Dropdown-->
 	<li class="dropdown">
