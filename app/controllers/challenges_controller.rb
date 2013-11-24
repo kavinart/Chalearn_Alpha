@@ -2,6 +2,10 @@ class ChallengesController < ApplicationController
 	include ChallengesHelper
 	require 'zip'
 
+	#Cancan filter
+	load_and_authorize_resource
+
+
 	def self.convert_date(x)
 		return x.gsub!('/',',')
 	end

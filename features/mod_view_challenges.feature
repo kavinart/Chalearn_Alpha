@@ -10,10 +10,10 @@ Background: challenges and organizers have been added to the database
 
   And the following challenges exist:
   | title                    | description   | start_time   | user_id |
-  | Flight path1             | Optimize cost | 25-Nov-1992  |    1    |
+  | Flight path1             | Optimize cost | 25-Nov-1992  |    7    |
   | Flight path2             | Optimize cost | 25-Nov-1992  |    2    |   
   | Flight path3             | Optimize cost | 25-Nov-1992  |    2    |
-  | Flight path4             | Optimize cost | 25-Nov-1992  |    1    |
+  | Flight path4             | Optimize cost | 25-Nov-1992  |    8    |
   | Flight path5             | Optimize cost | 25-Nov-1992  |    5    |
 
 Scenario: View all past challenges regardless of challenge organizer

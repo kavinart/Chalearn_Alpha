@@ -1,4 +1,4 @@
-Feature: organizer deletes an existing challenge
+Feature: Moderator delete users
  
   As a registered organizer
   So that I can delete existing challenge permanently from my database
@@ -9,10 +9,10 @@ Background: challenges and organizers have been added to the database
   Given I am a new, authenticated moderator
 
   And the following users exist:
-  | email                   | password       | password_confirmation | first_name |
-  | test@test.com           | 12345678       | 12345678              |   BenV     |
-  | test1@test.com          | 12345678       | 12345678              |   Sun      |
-  | test2@test.com          | 12345678       | 12345678              |   Lily     |
+  | email                   | password       | password_confirmation | first_name |    role     |
+  | test@test.com           | 12345678       | 12345678              |   BenV     |  Organizer  |
+  | test1@test.com          | 12345678       | 12345678              |   Sun      |  Organizer  |
+  | test2@test.com          | 12345678       | 12345678              |   Lily     |  Organizer  |
 
   And I am on the home page
 
@@ -24,8 +24,6 @@ Scenario: Tries to delete a challenge and confirm deletion
 
   When I follow "delete_2"
   And I confirm popup with "OK"
-
-  Then I should be on the users page
 
   Then I should see "test1@test.com"
   And I should see "Sun"

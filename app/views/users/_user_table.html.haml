@@ -6,6 +6,8 @@
       %th Work Bench ID
       %th First Name
       %th Last Name
+      %th Role
+      %th
   %tbody
     - @users.each do |user|
       %tr
@@ -14,6 +16,7 @@
         %td= user.work_id
         %td= user.first_name
         %td= user.last_name
+        %td= user.role
         %td= link_to "Show", user
         %td= link_to "Edit", edit_user_registration_path(user),:id => "edit_" + user.id.to_s
         %td= link_to "Delete", user, :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + user.id.to_s
