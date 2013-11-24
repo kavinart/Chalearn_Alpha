@@ -2,15 +2,26 @@ Given /^I am not authenticated$/ do
   visit('/users/sign_out') # ensure that at least
 end
 
-Given /^I am a new, authenticated user$/ do
+Given /^I am a new, authenticated user/ do
   email = 'testing@man.net'
   password = 'secretpass'
-  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'organizer')
+  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'user')
   user.skip_confirmation!
   user.save!
-  if user == nil
-    puts "TEST"
-  end
+  visit '/users/sign_in'
+
+  fill_in "drop_user_email", :with => email
+  fill_in "drop_user_password", :with => password
+  click_button "drop_sign_in"
+
+end
+
+Given /^I am a new, authenticated moderator/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'moderator')
+  user.skip_confirmation!
+  user.save!
   visit '/users/sign_in'
 
   fill_in "drop_user_email", :with => email
