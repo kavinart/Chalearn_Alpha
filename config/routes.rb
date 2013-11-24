@@ -8,6 +8,8 @@ Db3::Application.routes.draw do
 
   get "welcome/index"
   root :to => 'welcome#index'
+
+  match 'challenges/:id/getzip(.:format)' => 'challenges#getstream', :as => :zip_challenge
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

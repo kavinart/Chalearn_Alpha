@@ -25,6 +25,13 @@ Then /the following challenges should not be in the database/ do |challenges_tab
   end
 end
 
+Then /^I should receive a zip file "(.*)"$/ do |file|
+  result = page.response_headers['Content-Type'].should == "application/zip"
+  if result
+    result = page.response_headers['Content-Disposition'].should =~ /#{file}/
+  end
+  result
+end
 
 
 #Assert start_time attribute of a challenge

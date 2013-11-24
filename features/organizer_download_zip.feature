@@ -10,12 +10,11 @@ Background: challenges have been added to database
 
   And the following challenges exist:
   | title                   | description   | start_time   | user_id |
-  | Flight path             | Optimize cost | 25-Nov-1992  |    1    |
+  | Portofolio Optimization | Optimize cost | 25-Nov-1992  |    1    |
 
   And I am on the Chalearn's Challenges page
 
 Scenario: Create a challenge
-  Then show me the page
   Given I am on the Chalearn's Challenges page
   When I follow "zip_1"
-  Then I should receive a file "HIV Challenge.zip"
+  Then I should receive a zip file "Portofolio Optimization.zip"
