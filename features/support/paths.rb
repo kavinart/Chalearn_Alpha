@@ -14,13 +14,9 @@ module NavigationHelpers
     case page_name
 
     when /^the home\s?page$/
-      '/movies'
-      
-    when /^the Similar Movies page for "(.*)"/
-      id = Movie.find_by_title($1).id
-      "/movies/#{id}/same_director"
+      '/'
 
-    when /^the (Chalearn )?home\s?page$/ then '/movies'
+    when /^the (Chalearn )?home\s?page$/ then '/challenges'
 
     when /^the Chalearn's Challenges page/
         challenges_path
@@ -32,6 +28,8 @@ module NavigationHelpers
     when /^the edit page for "(.*)"/
       id = Challenge.find_by_title($1).id
       "/challenges/#{id}/edit"
+    when /^the User Profile page/
+      edit_user_registration_path
 
 
     # Add more mappings here.

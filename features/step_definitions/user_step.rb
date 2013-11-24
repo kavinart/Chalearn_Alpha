@@ -3,9 +3,14 @@ Given /^I am not authenticated$/ do
 end
 
 Given /^I am a new, authenticated user$/ do
-  email = 'testing@man.net'
-  password = 'secretpass'
-  user = User.create(:email => email, :password => password, :password_confirmation => password)
+  email = 'ryo.miyaichi@arsenal.co.uk'
+  password = '12345678'
+  first = 'Ryo'
+  last = 'Miyaichi'
+  organization = 'Arsenal'
+  work_id = 0
+  user = User.create(:email => email, :password => password, :password_confirmation => password, 
+    :first_name => first, :last_name => last, :organization => organization, :work_id => work_id)
   user.skip_confirmation!
   user.save!
   
@@ -16,6 +21,13 @@ Given /^I am a new, authenticated user$/ do
   click_button "drop_sign_in"
 
 end
+
+Given /the following users exist/ do |users_table|
+  users_table.hashes.each do |user|
+    User.create!(user)
+  end
+end
+
 
 # Make sure that one string (regexp) occurs before or after another one
 #   on the same page

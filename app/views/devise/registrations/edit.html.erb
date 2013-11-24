@@ -3,7 +3,20 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :first_name %>
+  <%= f.text_field :first_name, :placeholder => current_user.first_name %></div>
+
+  <div><%= f.label :last_name %>
+  <%= f.text_field :last_name, :placeholder => current_user.last_name %></div>
+
+  <div><%= f.label :organization %>
+  <%= f.text_field :organization, :placeholder => current_user.organization %>
+  </div>
+
+  <div><%= f.label "Workbench ID" %>
+  <%= f.text_field :work_id, :placeholder => current_user.work_id %></div>
+
+  <div><%= f.label :email %>
   <%= f.email_field :email, :autofocus => true %></div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -13,17 +26,17 @@
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password, :autocomplete => "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
+  <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
-  <div><%= f.submit "Update", :class => "btn btn-primary" %></div>
-<% end %>
+  <div><%= f.submit "Update",:id => "submit", :class => "btn btn-success" %></div>
+<% end %> 
 
 <h3>Delete My Account</h3>
 
-<p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger" %></p>
+<p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger" %>
 
-<%= link_to "Back", :back %>
+<%= link_to "Cancel", :back %></p>
