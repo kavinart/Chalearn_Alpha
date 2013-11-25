@@ -1,11 +1,11 @@
-Feature: users have the ability to edit their profile
+Feature: All users have the ability to edit their profile
  
   As a registered organizer
   So that I can view and edit my personal informations
   I want to have my own profile page where it shows these informations
   and be able to edit them.
 
-Background: challenges and organizers have been added to the database
+Background: organizers have been added to the database
   
   Given I am a new, authenticated user with full profile
   And I follow "Edit Profile"

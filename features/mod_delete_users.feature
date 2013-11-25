@@ -1,10 +1,10 @@
 Feature: Moderator delete users
  
-  As a registered organizer
-  So that I can delete existing challenge permanently from my database
+  As an approved moderator
+  So that I can delete existing any organizers permanently from my database
   I want to be able to click the delete button and confirm my deletion before destroying the challenge from the database
 
-Background: challenges and organizers have been added to the database
+Background: registered users have been added to the database
   
   Given I am a new, authenticated moderator
 

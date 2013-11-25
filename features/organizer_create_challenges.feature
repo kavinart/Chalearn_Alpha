@@ -4,7 +4,7 @@ Feature: organizer creates a new challenge
   So that I can create new competitions
   I want to see my newly created competition listed on my challenges table
 
-Background: challenges and organizers have been added to the database
+Background: challenges have been added to the database
   
   Given I am a new, authenticated user
 

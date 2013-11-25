@@ -1,10 +1,10 @@
-Feature: organizer views challenges
+Feature: organizer views his own challenges
  
   As a registered organizer
   So that I can view all past challenges
   I want to be able to see my past challenges listed in chronological order all in one page
 
-Background: challenges and organizers have been added to the database
+Background: challenges have been added to the database
   
   Given I am a new, authenticated user
 

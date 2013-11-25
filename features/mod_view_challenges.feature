@@ -1,10 +1,10 @@
-Feature: Moderator view challenges
+Feature: Moderator view all challenges
  
-  As an registered moderator
+  As a registered moderator
   So that I can manage the vast amount of challenges on the site
   I want to be able to see all past challenges regardless of challenge organizer
 
-Background: challenges and organizers have been added to the database
+Background: challenges have been added to the database
   
   Given I am a new, authenticated moderator
 

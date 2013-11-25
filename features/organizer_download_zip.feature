@@ -1,6 +1,6 @@
-Feature: make package downloadable for users
+Feature: make package downloadable as a zip for users
  
-  As an organizer 
+  As a registered organizer 
   So that I can compile and organize challeges based on the informations given by the packages
   I want to be able to download the package zip file.
   

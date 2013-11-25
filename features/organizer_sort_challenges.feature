@@ -1,6 +1,6 @@
 Feature: display list of challenges sorted by different criteria
  
-  As an organizer 
+  As a registered organizer 
   So that I can quickly browse challenges based on my preference
   I want to see challenges sorted by start date, end date, create date, title
   

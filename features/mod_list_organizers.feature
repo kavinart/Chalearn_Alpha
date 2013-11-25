@@ -1,6 +1,6 @@
-Feature: list all users
+Feature: Moderator list all users
  
-  As a registered admin
+  As an approved moderator
   So that I can view all users in the system
   I want to be view the users in the database with the all the information about my users
 

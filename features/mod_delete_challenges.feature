@@ -1,10 +1,10 @@
 Feature: Moderater delete challenges 
  
-  As a registered moderator
-  So that I can view all challenges in the system
-  I want to be view the challenges in the database with the all the information about users' challenges 
+  As an approved moderator
+  So that I can delete unwanted challenges,
+  I want a system that gives me an ability to delete an unwanted challenge.
 
-Background: registered users have been added to the database
+Background: challenges have been added to the database
 
 Given I am a new, authenticated moderator
 

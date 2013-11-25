@@ -1,10 +1,10 @@
-Feature: organizer views challenges
+Feature: Organizer restricted to his own challenges
  
   As a registered organizer
   So that I am restricted access to organizers
   I want to be able to be denied access when attemping to view others' challenges
 
-Background: challenges and organizers have been added to the database
+Background: challenges have been added to the database
   
   Given I am a new, authenticated user
 

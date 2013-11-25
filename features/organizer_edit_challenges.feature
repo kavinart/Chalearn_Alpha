@@ -5,7 +5,7 @@ Feature: organizer edits an existing challenge
   I want to be able to click on one of my challenges and reinput all information
   that reflect the changes I want
 
-Background: challenges and organizers have been added to the database
+Background: challenges have been added to the database
   
   Given I am a new, authenticated user
 

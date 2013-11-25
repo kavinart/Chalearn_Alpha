@@ -1,10 +1,10 @@
-Feature: organizer deletes an existing challenge
+Feature: organizer deletes an existing challenge of his own
  
   As a registered organizer
   So that I can delete existing challenge permanently from my database
   I want to be able to click the delete button and confirm my deletion before destroying the challenge from the database
 
-Background: challenges and organizers have been added to the database
+Background: challenges have been added to the database
   
   Given I am a new, authenticated user
 
