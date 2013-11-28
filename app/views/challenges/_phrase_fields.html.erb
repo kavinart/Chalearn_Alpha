@@ -1,0 +1,26 @@
+<div class="span12">
+	<%= f.label :label, "Label" %>
+	<%= f.text_field :label %>
+
+	<%= f.label :start_date, "Start date" %> 
+	<%= f.text_field :start_date %>
+
+	<%= f.label :end_date, "End date" %>
+	<%= f.text_field :end_date %>
+
+	<%= f.label :max_submissions, "Maximum submissions" %>
+	<%= f.text_field :max_submissions %>
+
+	<%= f.label :submissions_per_day, "Number of submissions in one day" %>
+	<%= f.text_field :submissions_per_day %>
+
+	<%= f.label :task_averaging, "Task averaging" %>
+	<%= f.text_field :task_averaging %>
+
+	<%= f.label :numeric_format, "Number of decimals in leaderboard" %>
+	<%= f.text_field :numeric_format %> 
+
+	<%= f.fields_for :tasks do |builder| %>
+		<%= render 'task_fields', :f => builder %>
+	<% end %>
+</div>

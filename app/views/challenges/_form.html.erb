@@ -59,6 +59,10 @@
         <%= render 'webpage_fields', :f => builder %>
     <% end %>
 
+    <%= f.fields_for :phrases do |builder| %>
+       <%= render 'phrase_fields', :f => builder %>
+    <% end %>
+
     <%= f.submit "Submit" , :id => "submit", :class => "btn btn-primary" %>
   </p>
 <% end %>
