@@ -1,6 +1,11 @@
 <%= f.label :title, "Page title"%>
 <%= f.text_field :title %><br />
+
+<p> Use external URL <%= f.check_box :is_external_url %> </p>
+
 <%= f.label :web_content, "Page content" %>
 <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> <br/>
+
+
 <%= f.label :_destory, "Remove Webpage" %>
 <%= f.check_box :_destroy %> <br/><br/>

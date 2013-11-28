@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128211749) do
+ActiveRecord::Schema.define(:version => 20131128234455) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -77,9 +77,10 @@ ActiveRecord::Schema.define(:version => 20131128211749) do
   create_table "webpages", :force => true do |t|
     t.string   "title"
     t.text     "web_content"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "challenge_id"
+    t.boolean  "is_external_url"
   end
 
 end
