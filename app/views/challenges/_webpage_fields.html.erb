@@ -5,7 +5,9 @@
 	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url %> </div>
 
 	<%= f.label :web_content, "Page content" %>
-	<div class="text"> <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> </div> <br/>
+	<div class="text_area"> <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> </div> 
+	<div class="text_field"> <%= f.text_field :web_content %> </div> 
+	<br/>
 
 
 	<%= f.label :_destory, "Remove Webpage" %>
@@ -13,9 +15,30 @@
 </div>
 
 <script>
-
+var count = 0;
 $(".ext_url").click(function() {
-	// var webpg = $( this ).parent();
-	$(this).parent().find('.text').slideUp();
+	count++;
+	// if (count == 0) {
+	// 	$(this).parent().find('.text_area').fade();
+	// 	$(this).parent().find('.text_field').slideDown();
+	// }
+	// // var webpg = $( this ).parent();
+	// $(this).parent().find('.text_area').slideUp();
+	// $(this).parent().find('.text_field').slideDown();
 });
 </script>
+
+
+<button>Toggle</button>
+<p>Hello</p>
+<p style="display: none">Good Bye</p>
+ 
+<script>
+var flip = 0;
+$( "button" ).click(function() {
+  $( "p" ).toggle( flip++ % 2 === 0 );
+});
+</script>
+ 
+</body>
+</html>
