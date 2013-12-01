@@ -75,10 +75,10 @@ class ChallengesController < ApplicationController
 
 	def new
 		@challenge = Challenge.new
-		20.times {@challenge.webpages.build}
-		10.times do
+		2.times {@challenge.webpages.build}
+		1.times do
 			phrase = @challenge.phrases.build
-			10.times {phrase.tasks.build}	
+			1.times {phrase.tasks.build}	
 		end
 	end
 
