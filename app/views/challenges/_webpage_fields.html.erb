@@ -5,32 +5,30 @@
 	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url %> </div>
 
 	<%= f.label :web_content, "Page content" %>
-	<div class="text_area"> <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> </div> 
-	<div class="text_field"> <%= f.text_field :web_content %> </div> 
-	<br/>
+	<div class="text_wysithml5"> <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> </div> 
+	<div class="text_simple_box"> <%= f.text_field :web_content %> </div> 
 
-
-	<%= f.label :_destory, "Remove Webpage" %>
-	<%= f.check_box :_destroy %> <br/><br/>
+	<div class="destroy"> Remove this page from the challenge
+		<%= f.check_box :_destroy %> 
+	</div>
 </div>
 
 <script>
-$(".ext_url").click(function() {
-	if ($(this).parent().find(".text_area").is(":visible")) {
-		$(this).parent().find(".text_area").hide();
-		$(this).parent().find(".text_field").show();
-	} else {
-		$(this).parent().find(".text_area").show();
-		$(this).parent().find(".text_field").hide();
-	}
-	// if (count == 0) {
-	// 	$(this).parent().find('.text_area').fade();
-	// 	$(this).parent().find('.text_field').slideDown();
-	// }
-	// // var webpg = $( this ).parent();
-	// $(this).parent().find('.text_area').slideUp();
-	// $(this).parent().find('.text_field').slideDown();
-});
+	$(document).ready(function() {
+		$(".text_simple_box").hide(); 
+
+	});
+
+	$(".ext_url").click(function() {
+		if ($(this).parent().find(".text_wysithml5").is(":visible")) {
+			$(this).parent().find(".text_wysithml5").hide();
+			$(this).parent().find(".text_simple_box").show();
+		} else {
+			$(this).parent().find(".text_wysithml5").show();
+			$(this).parent().find(".text_simple_box").hide();
+		}
+
+	});
 </script>
   
 </body>
