@@ -15,9 +15,14 @@
 </div>
 
 <script>
-var count = 0;
 $(".ext_url").click(function() {
-	count++;
+	if ($(this).parent().find(".text_area").is(":visible")) {
+		$(this).parent().find(".text_area").hide();
+		$(this).parent().find(".text_field").show();
+	} else {
+		$(this).parent().find(".text_area").show();
+		$(this).parent().find(".text_field").hide();
+	}
 	// if (count == 0) {
 	// 	$(this).parent().find('.text_area').fade();
 	// 	$(this).parent().find('.text_field').slideDown();
@@ -27,18 +32,6 @@ $(".ext_url").click(function() {
 	// $(this).parent().find('.text_field').slideDown();
 });
 </script>
-
-
-<button>Toggle</button>
-<p>Hello</p>
-<p style="display: none">Good Bye</p>
- 
-<script>
-var flip = 0;
-$( "button" ).click(function() {
-  $( "p" ).toggle( flip++ % 2 === 0 );
-});
-</script>
- 
+  
 </body>
 </html>
