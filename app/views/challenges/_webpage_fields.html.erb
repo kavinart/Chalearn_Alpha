@@ -1,9 +1,36 @@
-<%= f.label :title, "Page title"%>
-<%= f.text_field :title %><br />
-
-<%= f.label :web_content, "Page content" %>
-<%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> <br/>
+<div class="webpage">	
+	<%= f.label :title, "Page title"%>
+	<%= f.text_field :title %><br />
 
 
-<%= f.label :_destory, "Remove Webpage" %>
-<%= f.check_box :_destroy %> <br/><br/>
+	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url %> </div>
+
+	<%= f.label :web_content, "Page content" %>
+	<div class="text_wysithml5"> <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> </div> 
+	<div class="text_simple_box"> <%= f.text_field :web_content %> </div> 
+
+	<div class="destroy"> Remove this page from the challenge
+		<%= f.check_box :_destroy %> 
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(".text_simple_box").hide(); 
+
+	});
+
+	$(".ext_url").click(function() {
+		if ($(this).parent().find(".text_wysithml5").is(":visible")) {
+			$(this).parent().find(".text_wysithml5").hide();
+			$(this).parent().find(".text_simple_box").show();
+		} else {
+			$(this).parent().find(".text_wysithml5").show();
+			$(this).parent().find(".text_simple_box").hide();
+		}
+
+	});
+</script>
+  
+</body>
+</html>
