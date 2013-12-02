@@ -2,31 +2,8 @@ title: <%= @challenge.title %> <br>
 description: <%= @challenge.description %> <br>
 start_time: <%= @challenge.start_time %> <br>
 end_time: <%= @challenge.end_time %> <br>
-html:
+html: <br>
 
 <% @challenge.webpages.each do |webpage| %>
-	<% if webpage.title != "" %>
-		<% if webpage.is_external_url? %>
-			<%= "    " + webpage.url %> <br>
-		<% else %>
-			<%= "    " + webpage.title_and_html_to_yaml %> <br>
-		<% end %>
-	<% end %>
-<% end %>
-<% @challenge.phrases.each_with_index do |phrase, index| %>
-	<%= "    " + index.to_s + ":" %> <br>
-		<%= "        label: \"" + phrase.label.to_s + "\"" %> <br>
-		<%= "        start_date: " + phrase.start_date.to_s %> <br>
-		<%= "        end_date: " + phrase.end_date.to_s %> <br>
-		<%= "        max_submissions: " + phrase.max_submissions.to_s %> <br>
-		<%= "        submissions_per_day: " + phrase.submissions_per_day.to_s %> <br>
-		<%= "        task_averaging: " + phrase.task_averaging.to_s %> <br>
-		<%= "        numeric_format " + phrase.numeric_format.to_s %> <br>
-
-		<% phrase.tasks.each_with_index do |task, index| %>
-			<%= "    " + index.to_s + ":" %> <br>
-			<%= "        name: " + task.name.to_s %> <br>
-			<%= "        url: " + task.url.to_s %> <br>
-			<%= "        description: " + task.description.to_s%> <br>
-		<% end %>
+  &nbsp&nbsp&nbsp <%= webpage.title_and_html_to_yaml %> <br>
 <% end %>
