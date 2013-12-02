@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128234455) do
+ActiveRecord::Schema.define(:version => 20131202010446) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20131128234455) do
     t.datetime "updated_at",      :null => false
     t.integer  "challenge_id"
     t.boolean  "is_external_url"
+    t.string   "url"
   end
 
 end

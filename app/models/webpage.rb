@@ -1,5 +1,5 @@
 class Webpage < ActiveRecord::Base
-  attr_accessible :title, :web_content, :is_external_url
+  attr_accessible :title, :web_content, :url, :is_external_url
   belongs_to :challenge
   
   def title_and_html_to_yaml

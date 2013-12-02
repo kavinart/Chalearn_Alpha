@@ -5,8 +5,13 @@
 <ul>
 <% for webpage in @challenge.webpages %>
   <li>
-    <strong> Title: </strong> <%= webpage.title %> </br>
+
+  	<strong> Title: </strong> <%= webpage.title %> </br>
+  	<% if webpage.is_external_url? %>
+    <strong> External URL: </strong> <%= webpage.url %>
+    <% else %>
     <strong> Content: </strong> <%= webpage.web_content %>
+   	<% end %>
   </li>
 <% end %>
 </ul>
