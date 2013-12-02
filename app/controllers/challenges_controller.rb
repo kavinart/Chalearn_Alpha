@@ -49,17 +49,104 @@ class ChallengesController < ApplicationController
         #Path parameters
         file_path = "#{Rails.root}/tmp/zip_tmp/"
         zip_name = 'tmp'+ challenge.id.to_s + '.zip'
+        yml_name = 'tmp' + challenge.id.to_s + '.yml'
+
+        #Creating yaml hash
+        yaml_hash = Hash.new()
+        challenge.attributes.each do |attr_name, attr_value|
+        	yaml_hash[attr_name] = attr_value
+        end
+        yaml_html = Hash.new()
+        challenge.webpages.each do |webpage|
+        	if webpage.is_external_url == false
+        		yaml_html[webpage.title] = webpage.html_title
+        	else
+        		yaml_html[webpage.title] = webpage.url
+        	end
+        end
+        yaml_hash["html"] = yaml_html
+
+        yaml_phase = Hash.new()
+        challenge.phrases.each_with_index do |phrase, index|
+        	yaml_phase_attr = Hash.new()
+        	phrase.attributes.each do |attr_name, attr_value|
+        		yaml_phase_attr[attr_name] = attr_value
+        	end
+        	yaml_task = Hash.new()
+        	phrase.tasks.each_with_index do |task, task_index|
+        		if task.name != ''
+	        		yaml_task_attr = Hash.new()
+	        		task.attributes.each do |attr_name, attr_value|
+	        			yaml_task_attr[attr_name] = attr_value
+	        		end
+	        		yaml_task[task_index+1] = yaml_task_attr
+	        	end
+        	end
+        	yaml_phase_attr["tasks"] = yaml_task
+        	yaml_phase[index+1] = yaml_phase_attr
+        end
+        yaml_hash["phase"] = yaml_phase
+        # challenge.webpages.each do |webpage|
+        # 	yaml_hash[webpage.title] = webpage.title_and_html_to_yaml
+        # end
+        # yaml_hash["phases"] = challenge.phrases
+        # challenge.phrases.each_with_index do |phrase, index|
+        # 	yaml_phrase = Hash.new()
+        # 	phrase.attributes.each do |attr_name, attr_value|
+        # 		yaml_phrase[attr_name] = attr_value
+        # 	end
+        # 	phrase.tasks.each_with_index do |task, task_index|
+        # 		yaml_phrase[task_index+1] = task
+        # 	end
+        # 	yaml_hash[index+1] = yaml_phrase
+        # end
+
+
+
+        # yaml_text = ""
+        # #Iterate over phrases in a challenge
+        # challenge.phrases.each_with_index do |phrase, index|
+        # 	#For each phrase, loop over each attribute
+        # 	#yaml_text = yaml_text + index.to_s + "  "
+
+        # 	yaml_array << index.to_s + "  "
+        # 	phrase.attributes.each do |attr_name, attr_value|
+        # 		#yaml_text = yaml_text + attr_name.to_s + ": " + attr_value.to_s + "  "
+        # 		yaml_array << attr_name.to_s + ": " + attr_value.to_s
+        # 	end
+
+        # 	#Iterate over tasks in a phrase
+        # 	#yaml_text = yaml_text + index.to_s + "  "
+        # 	yaml_array << index.to_s + "  "
+        # 	phrase.tasks.each_with_index do |task, index|
+        # 		#For each task, loop over each attribute
+        # 		task.attributes.each do |attr_name, attr_value|
+        # 			#yaml_text = yaml_text + attr_name.to_s + ": " + attr_value.to_s + "  "
+        # 			yaml_array << attr_name.to_s + ": " + attr_value.to_s
+        # 		end
+        # 	end
+        # end
+
+        #Create yaml file
+        File.open(file_path + yml_name, "w+") do |file|
+        	file.write(yaml_hash.to_yaml)
+        end
 
         #Creating html and zip files
         Zip::File.open(file_path + zip_name,Zip::File::CREATE) do |zipfile|
 	        challenge.webpages.each do |webpage|
-	            html_name = webpage.title + '.html'
-	            File.open(file_path + html_name, "w+") do |file|
-	                    file.write(webpage.web_content)
-	            end
+	        	if webpage.title != ""
+		            html_name = webpage.title + '.html'
+		            File.open(file_path + html_name, "w+") do |file|
+		                    file.write(webpage.web_content)
+		            end
 
-	            zipfile.add(html_name,file_path + html_name)
+		            #Add each html to zip
+		            zipfile.add(html_name,file_path + html_name)
+	        	end
 	        end
+	        #Add yml to the zip
+	        zipfile.add(yml_name,file_path + yml_name)
     	end
 
     	#Sending zip
@@ -68,8 +155,10 @@ class ChallengesController < ApplicationController
         
         #Data cleanup
         challenge.webpages.each do |webpage|
-	    	html_name = webpage.title + '.html'
-	    	File.delete(file_path + html_name)
+        	if webpage.title != ""
+		    	html_name = webpage.title + '.html'
+		    	File.delete(file_path + html_name)
+		    end
 	      end
 		File.delete(file_path + zip_name)
     end
@@ -77,10 +166,10 @@ class ChallengesController < ApplicationController
 
 	def new
 		@challenge = Challenge.new
-		5.times {@challenge.webpages.build}
+		12.times {@challenge.webpages.build}
 		3.times do
 			phrase = @challenge.phrases.build
-			5.times {phrase.tasks.build}	
+			3.times {phrase.tasks.build}	
 		end
 	end
 
