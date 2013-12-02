@@ -55,12 +55,69 @@
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
 
+
+    <% i = 0 %>
     <%= f.fields_for :webpages do |builder| %>
-        <%= render 'webpage_fields', :f => builder %>
+        <% if i == 0 %>
+            <div id="<%= i %>">
+                <%= render 'webpage_fields', :f => builder %>
+                <a class="btn2_<%= i + 1 %>">Add a Page</a>
+                </br>
+            </div>
+        <% else %>
+            <%= content_tag :div, id: i do -%>
+                <%= render 'webpage_fields', :f => builder %>
+                <a class="btn2_<%= i + 1 %>">Add a Page</a>
+                </br>
+            <% end -%>
+            <script>
+                if(!document.getElementById('challenge_webpages_attributes_<%= i %>_title').value) {
+                    $( "#<%= i %>" ).hide();
+                }
+            </script>
+        <% end %>
+        <script>
+            $(document).ready(function(){
+                $(".btn1_<%= i %>").click(function(){
+                    $( "#<%= i %>" ).hide();
+                    $(".btn2_<%= i %>").show()
+                });
+                $(".btn2_<%= i %>").click(function(){
+                    $( "#<%= i %>" ).show();
+                    $(".btn2_<%= i %>").hide()
+                });
+            });
+        </script>
+        <% i = i + 1 %>
     <% end %>
 
+
+    <% j = 0 %>
+    <a class="phrase_btn2_<%= j %>">Add a Phrase</a>
     <%= f.fields_for :phrases do |builder| %>
-       <%= render 'phrase_fields', :f => builder %>
+       <div id="phrase_<%= j %>">
+            <%= render 'phrase_fields', :f => builder %>
+            <a class="phrase_btn2_<%= j + 1 %>">Add a Phrase</a>
+            </br>
+       </div>
+       <script>
+           if(!document.getElementById('challenge_phrases_attributes_<%= j %>_label').value) {
+                $( "#phrase_<%= j %>" ).hide();
+            }
+       </script>
+       <script>
+            $(document).ready(function(){
+                $(".phrase_btn1_<%= j %>").click(function(){
+                    $( "#phrase_<%= j %>" ).hide();
+                    $(".phrase_btn2_<%= j %>").show();
+                });
+                $(".phrase_btn2_<%= j %>").click(function(){
+                    $( "#phrase_<%= j %>" ).show();
+                    $(".phrase_btn2_<%= j %>").hide();
+                });
+            });
+        </script>
+       <% j = j + 1 %>
     <% end %>
 
     <%= f.submit "Submit" , :id => "submit", :class => "btn btn-primary" %>

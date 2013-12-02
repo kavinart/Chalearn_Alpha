@@ -3,7 +3,7 @@
 	<%= f.label :title, "Page Title"%>
 	<%= f.text_field :title %><br/>
 
-	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url, :onclick => "checkStatus(this)" , :id => "checkbox" %> </div>
+	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url,:onclick => "checkStatus(this)"%> </div>
 
 	<div class="text_wysithml5">	
 		<%= f.label :web_content, "Page Content" %>
@@ -23,15 +23,6 @@
 <script>
 	$(document).ready(function() {
 		$(".text_simple_box").hide(); 
-		// if (check_box_obj.checked){
-
-		// 	$(check_box_obj).parent().siblings(".text_wysithml5").hide()
-		// 	$(check_box_obj).parent().siblings(".text_simple_box").show()
-		// }
-		// else{
-		// 	$(check_box_obj).parent().siblings(".text_wysithml5").show()
-		// 	$(check_box_obj).parent().siblings(".text_simple_box").hide()
-		// }
 	});
 
 	var checkStatus = function(check_box_obj)
