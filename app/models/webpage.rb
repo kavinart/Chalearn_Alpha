@@ -6,4 +6,8 @@ class Webpage < ActiveRecord::Base
  	self.title + ': ' + self.title.downcase.gsub(/\s+/,"_") + '.html'
   end
 
+  def html_title
+  	self.title.downcase.gsub(/\s+/,"_") + '.html'
+  end
+
 end
