@@ -20,7 +20,26 @@
 	<%= f.label :numeric_format, "Number of decimals in leaderboard" %>
 	<%= f.text_field :numeric_format %> 
 
+	<%= link_to_function "Add a Task", "addTask_base(this)" %>
 	<%= f.fields_for :tasks do |builder| %>
 		<%= render 'task_fields', :f => builder %>
 	<% end %>
 </div>
+
+<script>
+	$(document).ready(function() {
+		$(".task").each(function() {
+			if (!($(this)).children().children().first().next().val()) {
+				$(this).hide();
+			}
+		});
+	});
+
+	var addTask_base = function(obj) {
+		$(obj).next(".task").show();
+	};
+
+	var addTask = function(obj) {
+		$(obj).parent().parent().next(".task").show();
+	};
+</script>
