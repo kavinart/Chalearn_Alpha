@@ -3,7 +3,7 @@
 	<%= f.label :title, "Page Title"%>
 	<%= f.text_field :title %><br/>
 
-	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url,:onclick => "checkStatus(this)"%> </div>
+	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url, :onclick => "checkStatus(this)", :class => "urlcheckbox"%> </div>
 
 	<div class="text_wysithml5">	
 		<%= f.label :web_content, "Page Content" %>
@@ -11,7 +11,7 @@
 	</div> 
 
 	<div class="text_simple_box"> 
-		<%= f.label :web_content, "External URL"%>
+		<%= f.label :url, "External URL"%>
 		<%= f.text_field :url%>
 	</div> 
 

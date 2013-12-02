@@ -20,15 +20,25 @@ var remove_webpage = function(link) {
 
 //------------------------------------
 $(document).ready(function() {
-  $(".text_simple_box").hide(); 
+  var check_box_obj = $(".urlcheckbox");
+  var index;
+  for (index = 0; index < check_box_obj.length; ++index) {
+    if (check_box_obj[index].checked){
+      $(check_box_obj[index]).parent().siblings(".text_wysithml5").hide()
+      $(check_box_obj[index]).parent().siblings(".text_simple_box").show()
+    }
+    else{
+      $(check_box_obj[index]).parent().siblings(".text_wysithml5").show()
+      $(check_box_obj[index]).parent().siblings(".text_simple_box").hide()
+    }
+  }
 });
 
 var checkStatus = function(check_box_obj)
 {
-  console.log($(check_box_obj).parent().parent())
-  console.log($(check_box_obj).siblings())
+  // console.log($(check_box_obj).parent().parent())
+  // console.log($(check_box_obj).siblings())
   if (check_box_obj.checked){
-
     $(check_box_obj).parent().siblings(".text_wysithml5").hide()
     $(check_box_obj).parent().siblings(".text_simple_box").show()
   }
