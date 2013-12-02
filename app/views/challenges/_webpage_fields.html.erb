@@ -1,12 +1,19 @@
-<div class="webpage">	
-	<%= f.label :title, "Page title"%>
-	<%= f.text_field :title %><br />
+<div class="webpage">
+	
+	<%= f.label :title, "Page Title"%>
+	<%= f.text_field :title %><br/>
 
 	<div class="ext_url"> Use external URL <%= f.check_box :is_external_url,:onclick => "checkStatus(this)"%> </div>
 
-	<%= f.label :web_content, "Page content" %>
-	<div class="text_wysithml5"> <%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %> </div> 
-	<div class="text_simple_box"> <%= f.text_field :web_content %> </div> 
+	<div class="text_wysithml5">	
+		<%= f.label :web_content, "Page Content" %>
+		<%= f.text_area :web_content, :style => "width: 800px; height: 200px", :class => "wysihtml5" , :rows => 10 %>
+	</div> 
+
+	<div class="text_simple_box"> 
+		<%= f.label :web_content, "External URL"%>
+		<%= f.text_field :url%>
+	</div> 
 
 	<div class="destroy"> Remove this page from the challenge
 		<%= f.check_box :_destroy %> 
