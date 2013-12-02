@@ -47,29 +47,31 @@ class ChallengesController < ApplicationController
         challenge = Challenge.find_by_id(params[:id])
 
         #Path parameters
-        file_path = "#{Rails.root}/tmp/zip_tmp"
-            zip_name = challenge.id.to_s + 'tmp.zip'
+        file_path = "#{Rails.root}/tmp/zip_tmp/"
+        zip_name = 'tmp'+ challenge.id.to_s + '.zip'
 
-            #Creating html and zip files
-            Zip::File.open(file_path + zip_name,Zip::File::CREATE) do |zipfile|
-            challenge.webpages.each do |webpage|
-                html_name = webpage.title_html
-                File.open(file_path + html_name, "w+") do |file|
-                        file.write(webpage.web_content)
-                end
+        #Creating html and zip files
+        Zip::File.open(file_path + zip_name,Zip::File::CREATE) do |zipfile|
+	        challenge.webpages.each do |webpage|
+	            html_name = webpage.title + '.html'
+	            File.open(file_path + html_name, "w+") do |file|
+	                    file.write(webpage.web_content)
+	            end
 
-                zipfile.add(html_name,file_path + html_name)
-            end
-    end
-    zip_file = File.read(file_path + zip_name)
-    send_data zip_file, :filename => challenge.title + '.zip', :x_sendfile => true
+	            zipfile.add(html_name,file_path + html_name)
+	        end
+    	end
+
+    	#Sending zip
+	    zip_file = File.read(file_path + zip_name)
+	    send_data zip_file, :filename => challenge.title + '.zip', :x_sendfile => true
         
         #Data cleanup
-          challenge.webpages.each do |webpage|
-                  html_name = webpage.title_html
-                  File.delete(file_path + html_name)
-          end
-          File.delete(file_path + zip_name)
+        challenge.webpages.each do |webpage|
+	    	html_name = webpage.title + '.html'
+	    	File.delete(file_path + html_name)
+	      end
+		File.delete(file_path + zip_name)
     end
 
 
