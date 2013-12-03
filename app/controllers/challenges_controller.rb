@@ -58,32 +58,36 @@ class ChallengesController < ApplicationController
         end
         yaml_html = Hash.new()
         challenge.webpages.each do |webpage|
-        	if webpage.is_external_url == false
-        		yaml_html[webpage.title] = webpage.html_title
-        	else
-        		yaml_html[webpage.title] = webpage.url
-        	end
+        	if webpage.title != ''
+	        	if webpage.is_external_url == false
+	        		yaml_html[webpage.title] = webpage.html_title
+	        	else
+	        		yaml_html[webpage.title] = webpage.url
+	        	end
+	        end
         end
         yaml_hash["html"] = yaml_html
 
         yaml_phase = Hash.new()
         challenge.phrases.each_with_index do |phrase, index|
-        	yaml_phase_attr = Hash.new()
-        	phrase.attributes.each do |attr_name, attr_value|
-        		yaml_phase_attr[attr_name] = attr_value
-        	end
-        	yaml_task = Hash.new()
-        	phrase.tasks.each_with_index do |task, task_index|
-        		if task.name != ''
-	        		yaml_task_attr = Hash.new()
-	        		task.attributes.each do |attr_name, attr_value|
-	        			yaml_task_attr[attr_name] = attr_value
-	        		end
-	        		yaml_task[task_index+1] = yaml_task_attr
+        	if phrase.label != ''
+	        	yaml_phase_attr = Hash.new()
+	        	phrase.attributes.each do |attr_name, attr_value|
+	        		yaml_phase_attr[attr_name] = attr_value
 	        	end
-        	end
-        	yaml_phase_attr["tasks"] = yaml_task
-        	yaml_phase[index+1] = yaml_phase_attr
+	        	yaml_task = Hash.new()
+	        	phrase.tasks.each_with_index do |task, task_index|
+	        		if task.name != ''
+		        		yaml_task_attr = Hash.new()
+		        		task.attributes.each do |attr_name, attr_value|
+		        			yaml_task_attr[attr_name] = attr_value
+		        		end
+		        		yaml_task[task_index+1] = yaml_task_attr
+		        	end
+	        	end
+	        	yaml_phase_attr["tasks"] = yaml_task
+	        	yaml_phase[index+1] = yaml_phase_attr
+	        end
         end
         yaml_hash["phase"] = yaml_phase
         # challenge.webpages.each do |webpage|
