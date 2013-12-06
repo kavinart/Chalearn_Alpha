@@ -18,9 +18,14 @@ Background: challenges have been added to the database
 	And I am on the Chalearn's Challenges page
 
 Scenario: click zip to download HTML and YAML files regardless of user id
+	Given I am on the Chalearn's Challenges page 
 	When I follow "zip_1"
 	Then I should receive a zip file "Flight path.zip"
+
+	Then I go to the Chalearn's Challenges page
 	When I follow "zip_2"
 	Then I should receive a zip file "Disney queues.zip"
+	
+	Then I go to the Chalearn's Challenges page
 	When I follow "zip_3"
 	Then I should receive a zip file "Zebrafish brain activity.zip"

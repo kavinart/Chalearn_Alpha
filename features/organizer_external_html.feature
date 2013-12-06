@@ -8,12 +8,6 @@ Background: challenges have been added to the database
   
 	Given I am a new, authenticated user
 
-	And the following challenges exist:
-	| title                   | description   | start_time   | user_id |
-	| Flight path             | Optimize cost | 25-Nov-1992  |    1    |
-
-	And I am on the Chalearn's Challenges page
-
 Scenario: Create a challenge
     Given I am on the Chalearn's Challenges page
     When I follow "New Challenge"
@@ -23,11 +17,10 @@ Scenario: Create a challenge
     And I fill in "Start time" with "30/October/2013"
     And I fill in "End time" with "31/October/2013"
     And I fill in "Description" with "Model the financial crisis"
-    And I check "Use external URL"
-    Then I should see the text field "Enter URL"
-
-    When I fill in "Enter URL" with "http://www.test.com"
+    And I check "challenge_webpages_attributes_0_is_external_url"
+    When I fill in "challenge_webpages_attributes_0_url" with "http://www.test.com"
     And I press "submit"
 
-    Then I should be on the details page for "Flight path"
-    And I should see "Flight path"
+    Then I should be on the details page for "Finance machine learning"
+    And I should see "Finance machine learning"
+    And I should see "http://www.test.com"

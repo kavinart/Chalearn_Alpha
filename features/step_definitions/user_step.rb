@@ -35,6 +35,20 @@ Given /^I am a new, authenticated moderator$/ do
   click_button "drop_sign_in"
 end
 
+Given /^I am a new, authenticated admin$/ do
+  email = 'testing@man.net'
+  password = 'secretpass'
+  user = User.create(:email => email, :password => password, :password_confirmation => password,:role => 'admin')
+  user.skip_confirmation!
+  user.save!
+  visit '/users/sign_in'
+
+  fill_in "drop_user_email", :with => email
+  fill_in "drop_user_password", :with => password
+  click_button "drop_sign_in"
+
+end
+
 Given /^I am a new, authenticated user with full profile$/ do
   email = 'ryo.miyaichi@arsenal.co.uk'
   password = '12345678'

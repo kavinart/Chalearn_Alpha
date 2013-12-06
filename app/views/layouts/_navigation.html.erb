@@ -7,8 +7,8 @@
 	<!--Logged in case -->
 	<% if user_signed_in? %>
 
-	<!--Admin case-->
-    <% if current_user.admin? %>
+	<!--Admin case/Mod case-->
+    <% if current_user.admin? || current_user.moderator? %>
     <li><%= link_to 'Manage Challenges', challenges_path %></li>
     <li><%= link_to 'Manage Users', users_path %></li>
     <li><%= link_to 'Manage Website', challenges_path %></li>

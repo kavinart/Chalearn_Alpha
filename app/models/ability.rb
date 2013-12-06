@@ -10,6 +10,10 @@ class Ability
 		elsif user.admin?
 			can :manage, :all
 
+			cannot :changeRole, User do |user| 
+				user.try(:role) == 'admin'
+			end
+
 		#Moderator has all powers on all models, except admin/mod accounts.
 		elsif user.moderator?
 			can :manage, :all
@@ -31,6 +35,8 @@ class Ability
 				user.try(:role) == 'admin' ||
 				user.try(:role) == 'moderator'
 			end
+
+			cannot :changeRole, User
 
 
 		#Normal registered orgnizer
