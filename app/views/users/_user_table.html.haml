@@ -17,6 +17,8 @@
         %td= user.first_name
         %td= user.last_name
         %td= user.role
+        - if @current_user.admin?
+          %td= link_to "Make Mod", change_role_path(:id => user.id, :role => 'moderator'), :id => "make_mod_" + user.id.to_s
         %td= link_to "Show", user
         %td= link_to "Edit", edit_user_registration_path(user),:id => "edit_" + user.id.to_s
         %td= link_to "Delete", user, :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + user.id.to_s

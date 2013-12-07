@@ -47,7 +47,7 @@ class ChallengesController < ApplicationController
         challenge = Challenge.find_by_id(params[:id])
 
         #Path parameters
-        file_path = "#{Rails.root}/tmp/zip_tmp/"
+        file_path = "#{Rails.root}/zip_tmp/"
         zip_name = 'tmp'+ challenge.id.to_s + '.zip'
         yml_name = 'tmp' + challenge.id.to_s + '.yml'
 
@@ -56,6 +56,8 @@ class ChallengesController < ApplicationController
         challenge.attributes.each do |attr_name, attr_value|
         	yaml_hash[attr_name] = attr_value
         end
+
+        #Prepare webpage for
         yaml_html = Hash.new()
         challenge.webpages.each do |webpage|
         	if webpage.is_external_url == false
@@ -66,6 +68,7 @@ class ChallengesController < ApplicationController
         end
         yaml_hash["html"] = yaml_html
 
+        #Prepare phase hash for yaml file
         yaml_phase = Hash.new()
         challenge.phrases.each_with_index do |phrase, index|
         	yaml_phase_attr = Hash.new()
@@ -86,46 +89,7 @@ class ChallengesController < ApplicationController
         	yaml_phase[index+1] = yaml_phase_attr
         end
         yaml_hash["phase"] = yaml_phase
-        # challenge.webpages.each do |webpage|
-        # 	yaml_hash[webpage.title] = webpage.title_and_html_to_yaml
-        # end
-        # yaml_hash["phases"] = challenge.phrases
-        # challenge.phrases.each_with_index do |phrase, index|
-        # 	yaml_phrase = Hash.new()
-        # 	phrase.attributes.each do |attr_name, attr_value|
-        # 		yaml_phrase[attr_name] = attr_value
-        # 	end
-        # 	phrase.tasks.each_with_index do |task, task_index|
-        # 		yaml_phrase[task_index+1] = task
-        # 	end
-        # 	yaml_hash[index+1] = yaml_phrase
-        # end
 
-
-
-        # yaml_text = ""
-        # #Iterate over phrases in a challenge
-        # challenge.phrases.each_with_index do |phrase, index|
-        # 	#For each phrase, loop over each attribute
-        # 	#yaml_text = yaml_text + index.to_s + "  "
-
-        # 	yaml_array << index.to_s + "  "
-        # 	phrase.attributes.each do |attr_name, attr_value|
-        # 		#yaml_text = yaml_text + attr_name.to_s + ": " + attr_value.to_s + "  "
-        # 		yaml_array << attr_name.to_s + ": " + attr_value.to_s
-        # 	end
-
-        # 	#Iterate over tasks in a phrase
-        # 	#yaml_text = yaml_text + index.to_s + "  "
-        # 	yaml_array << index.to_s + "  "
-        # 	phrase.tasks.each_with_index do |task, index|
-        # 		#For each task, loop over each attribute
-        # 		task.attributes.each do |attr_name, attr_value|
-        # 			#yaml_text = yaml_text + attr_name.to_s + ": " + attr_value.to_s + "  "
-        # 			yaml_array << attr_name.to_s + ": " + attr_value.to_s
-        # 		end
-        # 	end
-        # end
 
         #Create yaml file
         File.open(file_path + yml_name, "w+") do |file|
@@ -161,6 +125,7 @@ class ChallengesController < ApplicationController
 		    end
 	      end
 		File.delete(file_path + zip_name)
+		File.delete(file_path + yml_name)
     end
 
 
