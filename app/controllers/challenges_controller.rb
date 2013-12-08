@@ -4,11 +4,6 @@ class ChallengesController < ApplicationController
 
 	#Cancan filter
 	load_and_authorize_resource
-
-
-	def self.convert_date(x)
-		return x.gsub!('/',',')
-	end
 	
 	def index
 		if current_user.admin? || current_user.moderator?
@@ -61,7 +56,7 @@ class ChallengesController < ApplicationController
         yaml_html = Hash.new()
         challenge.webpages.each do |webpage|
         	if webpage.is_external_url == false
-        		yaml_html[webpage.title] = webpage.html_title
+        		yaml_html[webpage.title] = webpage.title.downcase.gsub(/\s+/,"_") + '.html'
         	else
         		yaml_html[webpage.title] = webpage.url
         	end
