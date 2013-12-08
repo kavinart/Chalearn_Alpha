@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/user.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/user.rb": [
         1,
         null,
         null,
@@ -17,11 +17,11 @@
         1,
         null,
         1,
-        249,
+        255,
         null,
         null,
         1,
-        209,
+        215,
         null,
         null,
         1,
@@ -31,11 +31,11 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/application_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/application_controller.rb": [
         1,
         1,
         1,
-        24,
+        25,
         null,
         null,
         1,
@@ -44,11 +44,11 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/application_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/challenges_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/challenges_helper.rb": [
         1,
         1,
         6,
@@ -58,11 +58,11 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/webpages_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/webpages_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/challenges_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/challenges_controller.rb": [
         1,
         1,
         1,
@@ -70,13 +70,8 @@
         null,
         1,
         null,
-        null,
         1,
-        0,
-        null,
-        null,
-        1,
-        59,
+        61,
         23,
         1,
         22,
@@ -91,18 +86,18 @@
         20,
         null,
         null,
+        38,
+        1,
+        37,
+        1,
         36,
         1,
+        null,
+        null,
+        null,
+        null,
+        null,
         35,
-        1,
-        34,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        33,
         null,
         null,
         null,
@@ -245,7 +240,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/challenge.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/challenge.rb": [
         1,
         1,
         1,
@@ -255,7 +250,7 @@
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/users_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/users_controller.rb": [
         1,
         null,
         null,
@@ -292,42 +287,34 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/webpages_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/webpages_controller.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/webpage.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/webpage.rb": [
         1,
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/ability.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/welcome_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/saasbook/Desktop/chalearn/app/models/ability.rb": [
         1,
         1,
         1,
         null,
         null,
-        88,
+        90,
         0,
         null,
         null,
-        88,
+        90,
         9,
         null,
         9,
@@ -335,7 +322,7 @@
         null,
         null,
         null,
-        79,
+        81,
         29,
         null,
         null,
@@ -356,48 +343,49 @@
         0,
         null,
         null,
+        null,
         29,
         null,
         null,
         null,
         null,
         null,
-        50,
+        52,
         null,
         null,
-        50,
+        52,
         3,
         null,
-        50,
+        52,
         0,
         null,
         null,
         null,
         null,
-        50,
+        52,
         4,
         null,
         null,
         null,
-        50,
+        52,
         1,
         null,
-        50,
+        52,
         0,
         null,
         null,
         null,
-        50,
+        52,
         null,
         null,
-        50,
+        52,
         1,
         null,
         null,
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/phrase.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/phrase.rb": [
         1,
         1,
         1,
@@ -405,13 +393,13 @@
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/task.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/task.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1386374501
+    "timestamp": 1386542176
   }
 }
