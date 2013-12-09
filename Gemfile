@@ -21,6 +21,7 @@ end
 group :development, :test do
  gem 'sqlite3'
  gem 'selenium-client'
+ gem 'rspec-rails'
 end
 
 group :test do
@@ -31,7 +32,6 @@ group :test do
  gem 'capybara'
  gem 'launchy'
  #From Homework 4
- gem 'rspec-rails'
  gem 'simplecov'
 end
 
