@@ -121,8 +121,21 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+Then /^(?:|I )should( not)? see \/([^\/]*)\/$/ do |negate, regexp|
   regexp = Regexp.new(regexp)
+  if negate
+    if page.respond_to? :should
+      page.should have_no_xpath('//*', :text => regexp)
+    else
+      assert page.has_no_xpath?('//*', :text => regexp)
+    end
+  else
+    if page.respond_to? :should
+      page.should have_xpath('//*', :text => regexp)
+    else
+      assert page.has_xpath?('//*', :text => regexp)
+    end
+  end
 
   if page.respond_to? :should
     page.should have_xpath('//*', :text => regexp)
@@ -131,21 +144,12 @@ Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   end
 end
 
+
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_no_content(text)
   else
     assert page.has_no_content?(text)
-  end
-end
-
-Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
-  regexp = Regexp.new(regexp)
-
-  if page.respond_to? :should
-    page.should have_no_xpath('//*', :text => regexp)
-  else
-    assert page.has_no_xpath?('//*', :text => regexp)
   end
 end
 
