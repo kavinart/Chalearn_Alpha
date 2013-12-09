@@ -35,53 +35,24 @@ class ChallengesController < ApplicationController
 				@challenges = current_user.challenges
 			end		
 		end
-	end 
+	end
 
     def getstream
         #Challenge
         challenge = Challenge.find_by_id(params[:id])
 
-        #Path parameters
-        file_path = "#{Rails.root}/zip_tmp/"
-        zip_name = 'tmp'+ challenge.id.to_s + '.zip'
-        yml_name = 'tmp' + challenge.id.to_s + '.yml'
+        #Temp path
+        tmp_path = "#{Rails.root}/zip_tmp/"
 
-        yaml_hash = challenge.getyaml_hash
-        #Create yaml file
-        File.open(file_path + yml_name, "w+") do |file|
-        	file.write(yaml_hash.to_yaml)
-        end
-
-        #Creating html and zip files
-        Zip::File.open(file_path + zip_name,Zip::File::CREATE) do |zipfile|
-	        challenge.webpages.each do |webpage|
-	        	if webpage.title != ""
-		            html_name = webpage.title + '.html'
-		            File.open(file_path + html_name, "w+") do |file|
-		                    file.write(webpage.web_content)
-		            end
-
-		            #Add each html to zip
-		            zipfile.add(html_name,file_path + html_name)
-	        	end
-	        end
-	        #Add yml to the zip
-	        zipfile.add(yml_name,file_path + yml_name)
-    	end
+        #Create zip file
+        zip_path = challenge.createZip(tmp_path)
 
     	#Sending zip
-	    zip_file = File.read(file_path + zip_name)
+	    zip_file = File.read(zip_path)
 	    send_data zip_file, :filename => challenge.title + '.zip', :x_sendfile => true
         
-        #Data cleanup
-        challenge.webpages.each do |webpage|
-        	if webpage.title != ""
-		    	html_name = webpage.title + '.html'
-		    	File.delete(file_path + html_name)
-		    end
-	      end
-		File.delete(file_path + zip_name)
-		File.delete(file_path + yml_name)
+        #Data clean up
+        challenge.tempCleanUp(tmp_path)
     end
 
 

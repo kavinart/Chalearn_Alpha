@@ -30,4 +30,53 @@ class Challenge < ActiveRecord::Base
     return yaml_hash
   end
 
+  def createZip(file_path)
+    #Path parameters
+    zip_name = 'tmp'+ self.id.to_s + '.zip'
+    yml_name = 'tmp' + self.id.to_s + '.yml'
+
+    yaml_hash = self.getyaml_hash
+
+    #Create yaml file
+    File.open(file_path + yml_name, "w+") do |file|
+      file.write(yaml_hash.to_yaml)
+    end
+
+    #Creating html and zip files
+    Zip::File.open(file_path + zip_name,Zip::File::CREATE) do |zipfile|
+      self.webpages.each do |webpage|
+        if webpage.title != ""
+            html_name = webpage.title + '.html'
+            File.open(file_path + html_name, "w+") do |file|
+                    file.write(webpage.web_content)
+            end
+
+            #Add each html to zip
+            zipfile.add(html_name,file_path + html_name)
+        end
+      end
+      #Add yml to the zip
+      zipfile.add(yml_name,file_path + yml_name)
+    end
+
+    return file_path + zip_name
+  end
+
+  def tempCleanUp(file_path)
+    #Path parameters
+    zip_path = file_path + 'tmp'+ self.id.to_s + '.zip'
+    yaml_path = file_path + 'tmp' + self.id.to_s + '.yml'
+
+    #Delete html files
+    self.webpages.each do |webpage|
+      if webpage.title != ""
+        html_name = webpage.title + '.html'
+        File.delete(file_path + html_name)
+      end
+    end
+
+    File.delete(zip_path) #Delete zip file
+    File.delete(yaml_path) #Delete yaml file
+  end
+
 end
