@@ -123,19 +123,20 @@ end
 
 Then /^(?:|I )should( not)? see \/([^\/]*)\/$/ do |negate, regexp|
   regexp = Regexp.new(regexp)
-  if negate
+
     if page.respond_to? :should
-      page.should have_no_xpath('//*', :text => regexp)
+      if negate 
+        page.should have_no_xpath('//*', :text => regexp)
+      else
+        page.should have_xpath('//*', :text => regexp)
+      end
     else
-      assert page.has_no_xpath?('//*', :text => regexp)
+      if negate 
+        assert page.has_no_xpath?('//*', :text => regexp)
+      else
+        assert page.has_xpath?('//*', :text => regexp)
+      end
     end
-  else
-    if page.respond_to? :should
-      page.should have_xpath('//*', :text => regexp)
-    else
-      assert page.has_xpath?('//*', :text => regexp)
-    end
-  end
 end
 
 
