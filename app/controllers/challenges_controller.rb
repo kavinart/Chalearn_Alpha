@@ -17,18 +17,15 @@ class ChallengesController < ApplicationController
         #Challenge
         challenge = Challenge.find_by_id(params[:id])
 
-        #Temp path
-        tmp_path = "#{Rails.root}/zip_tmp/"
-
         #Create zip file
-        zip_path = challenge.createZip(tmp_path)
+        zip_path = challenge.createZip
 
     	#Sending zip
 	    zip_file = File.read(zip_path)
 	    send_data zip_file, :filename => challenge.title + '.zip', :x_sendfile => true
         
         #Data clean up
-        challenge.tempCleanUp(tmp_path)
+        challenge.tempCleanUp
     end
 
 
