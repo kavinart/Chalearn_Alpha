@@ -19,7 +19,6 @@ Scenario: Create a challenge
     Given I am on the Chalearn's Challenges page
     When I follow "New Challenge"
     Then I should be on the New Challenge page
-    Then show me the page
 
     When I fill in "Title" with "Finance machine learning"
     And I fill in "Start time" with "30/October/2013"
