@@ -136,12 +136,6 @@ Then /^(?:|I )should( not)? see \/([^\/]*)\/$/ do |negate, regexp|
       assert page.has_xpath?('//*', :text => regexp)
     end
   end
-
-  if page.respond_to? :should
-    page.should have_xpath('//*', :text => regexp)
-  else
-    assert page.has_xpath?('//*', :text => regexp)
-  end
 end
 
 
