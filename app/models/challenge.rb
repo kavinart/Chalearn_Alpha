@@ -42,7 +42,7 @@ class Challenge < ActiveRecord::Base
     return yaml_hash
   end
 
-  def appendWebpage(webpage)
+  def appendWebpage(webpage,zipfile)
    if not webpage.title.empty?
         html_name = webpage.title + '.html'
         File.open(self.getTmpFilePath + html_name, "w+") do |file|
@@ -51,14 +51,19 @@ class Challenge < ActiveRecord::Base
 
         #Add each html to zip
         zipfile.add(html_name,self.getTmpFilePath + html_name)
+        #A file is added
+        return true
     end
+
+    #No file is added
+    return false
   end
 
   def appendFiletoZip
     #Creating html and zip files
     Zip::File.open(self.getTmpFilePath + self.getTmpZipName,Zip::File::CREATE) do |zipfile|
       self.webpages.each do |webpage|
-        self.appendWebpage(webpage)
+        self.appendWebpage(webpage,zipfile)
       end
       #Add yml to the zip
       zipfile.add(self.getTmpYmlName,self.getTmpFilePath + self.getTmpYmlName)
