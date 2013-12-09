@@ -69,7 +69,10 @@ class Challenge < ActiveRecord::Base
 
     #Delete html files
     self.webpages.each do |webpage|
-      html_name = webpages.title + '.html' and File.delete(file_path + html_name) if not webpage.title.empty?
+      if not webpage.title.empty?
+        html_name = webpages.title + '.html'
+        File.delete(file_path + html_name) 
+      end
     end
 
     File.delete(file_path + 'tmp'+ self.id.to_s + '.zip') #Delete zip file
