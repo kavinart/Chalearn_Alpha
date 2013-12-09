@@ -2,12 +2,8 @@ class Webpage < ActiveRecord::Base
   attr_accessible :title, :web_content, :url, :is_external_url
   belongs_to :challenge
   
-  def title_and_html_to_yaml
- 	self.title + ': ' + self.title.downcase.gsub(/\s+/,"_") + '.html'
+  def webpage_yaml
+  	return self.title.downcase.gsub(/\s+/,"_") + '.html' if self.is_external_url == false
+  	return self.url
   end
-
-  def html_title
-  	self.title.downcase.gsub(/\s+/,"_") + '.html'
-  end
-
 end

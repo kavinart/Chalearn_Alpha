@@ -1,1 +1,0 @@
-Feature: organizer creates phrases within a challenge
