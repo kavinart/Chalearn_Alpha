@@ -21,8 +21,6 @@ Scenario: Edit a challenge
     Then I should be on the edit page for "Flight path"
 
     When I fill in "Title" with "Flight path"
-    And I fill in "Start time" with "30/October/2013"
-    And I fill in "End time" with "31/October/2013"
     And I fill in "Description" with "Model the financial crisis"
     And I press "submit"
 

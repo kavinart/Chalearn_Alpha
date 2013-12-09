@@ -21,8 +21,6 @@ Scenario: Create a challenge
     Then I should be on the New Challenge page
 
     When I fill in "Title" with "Finance machine learning"
-    And I fill in "Start time" with "30/October/2013"
-    And I fill in "End time" with "31/October/2013"
     And I fill in "Description" with "Model the financial crisis"
     And I fill in "challenge_webpages_attributes_0_title" with "Fed Model"
     And I fill in "challenge_webpages_attributes_0_web_content" with "<b>content of a page</b>"
