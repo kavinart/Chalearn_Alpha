@@ -6,34 +6,11 @@ class ChallengesController < ApplicationController
 	load_and_authorize_resource
 	
 	def index
+		valid_list = ['title', 'start_time', 'end_time', nil]
 		if current_user.admin? || current_user.moderator?
-			if params[:sort] == 'title'
-				@challenges = Challenge.find(:all,:order => 'LOWER(title)')
-			elsif params[:sort] == 'start_time'
-				@challenges = Challenge.find(:all,:order => 'start_time')
-			elsif params[:sort] == 'end_time'
-				@challenges = Challenge.find(:all,:order => 'end_time')
-			#elsif params[:sort] == 'created_at'
-			#	@challenges = Challenge.find(:all,:order => 'created_at')
-			#elsif params[:sort] == 'updated_at'
-			#	@challenges = Challenge.find(:all,:order => 'updated_at')
-			else
-				@challenges = Challenge.all
-			end
+			@challenges = Challenge.find(:all,:order => params[:sort]) if valid_list.include? params[:sort]
 		else
-			if params[:sort] == 'title'
-				@challenges = Challenge.all(:conditions => {:user_id => current_user.id},:order => 'LOWER(title)')
-			elsif params[:sort] == 'start_time'
-				@challenges = Challenge.all(:conditions => {:user_id => current_user.id},:order => 'start_time')
-			elsif params[:sort] == 'end_time'
-				@challenges = Challenge.all(:conditions => {:user_id => current_user.id},:order => 'end_time')
-			#elsif params[:sort] == 'created_at'
-			#	@challenges = Challenge.all(:conditions => {:user_id => current_user.id},:order => 'created_at')
-			#elsif params[:sort] == 'updated_at'
-			#	@challenges = Challenge.all(:conditions => {:user_id => current_user.id},:order => 'updated_at')
-			else
-				@challenges = current_user.challenges
-			end		
+			@challenges = Challenge.all(:conditions => {:user_id => current_user.id},:order => params[:sort]) if valid_list.include? params[:sort]
 		end
 	end
 
