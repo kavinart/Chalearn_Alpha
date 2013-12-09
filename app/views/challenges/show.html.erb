@@ -1,10 +1,8 @@
 <strong> Title </strong><%= @challenge.title %> </br>
-<strong> Start time </strong><%= @challenge.start_time %> </br>
-<strong> End time </strong><%= @challenge.end_time %> </br>
 
 <ul>
 <% for webpage in @challenge.webpages %>
-  <li class="show">
+  <li>
   	<strong> Title: </strong> <%= webpage.title %> </br>
   	<% if webpage.is_external_url? %>
 	  <strong> External URL: </strong> <%= webpage.url %>

@@ -2,10 +2,10 @@
 <%= form_for @challenge do |f| %>
     <div id="content">
         <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-            <li class="active"><a href="#basic_info" data-toggle="tab">Basic Information</a></li>
-            <li><a href="#webpages" data-toggle="tab">Webpages</a></li>
-            <li><a href="#phases" data-toggle="tab">Phases</a></li>
-            <li><a href="#submit" data-toggle="tab">Submit</a></li>
+            <li class="active"><a href="#basic_info" data-toggle="tab"><i class="icon-wrench"></i> Basic Information</a></li>
+            <li><a href="#webpages" data-toggle="tab"><i class="icon-list-alt"></i> Webpages</a></li>
+            <li><a href="#phases" data-toggle="tab"><i class="icon-list"></i> Phases</a></li>
+            <li><a href="#submit" data-toggle="tab"><i class="icon-check"></i> Submit</a></li>
         </ul>
     </div>
     <div id="my-tab-content" class="tab-content">
@@ -13,7 +13,17 @@
             <p>
                 <%= f.label :title %>
                 <%= f.text_field :title %><br/>
-               
+                <% if @challenge.start_time == nil or @challenge.end_time == nil %>
+                    <%= f.label :start_time %>
+                    <%= f.text_field :start_time, :class => "datepicker" %><br/>
+                    <%= f.label :end_time %>
+                    <%= f.text_field :end_time, :class => "datepicker" %><br/>
+                <% else %>
+                    <%= f.label :start_time %>
+                    <%= f.text_field :start_time, :class => "datepicker", :value => @challenge.start_time.strftime("%d/%B/%Y") %><br/>
+                    <%= f.label :end_time %>
+                    <%= f.text_field :end_time, :class => "datepicker", :value => @challenge.end_time.strftime("%d/%B/%Y") %><br/>
+                <% end %>
                 <%= f.label :description %>
                 <%= f.text_area :description, :style => "width: 800px; height: 200px" %><br/>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
