@@ -64,19 +64,19 @@ class Challenge < ActiveRecord::Base
 
   def tempCleanUp(file_path)
     #Path parameters
-    # zip_path = file_path + 'tmp'+ self.id.to_s + '.zip'
-    # yaml_path = file_path + 'tmp' + self.id.to_s + '.yml'
+    zip_path = file_path + 'tmp'+ self.id.to_s + '.zip'
+    yaml_path = file_path + 'tmp' + self.id.to_s + '.yml'
 
     #Delete html files
     self.webpages.each do |webpage|
       if not webpage.title.empty?
-        html_name = webpages.title + '.html'
-        File.delete(file_path + html_name) 
+        html_name = webpage.title + '.html'
+        File.delete(file_path + html_name)
       end
     end
 
-    File.delete(file_path + 'tmp'+ self.id.to_s + '.zip') #Delete zip file
-    File.delete(file_path + 'tmp' + self.id.to_s + '.yml') #Delete yaml file
+    File.delete(zip_path) #Delete zip file
+    File.delete(yaml_path) #Delete yaml file
   end
 
 end
