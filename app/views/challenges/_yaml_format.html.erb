@@ -1,9 +1,0 @@
-title: <%= @challenge.title %> <br>
-description: <%= @challenge.description %> <br>
-start_time: <%= @challenge.start_time %> <br>
-end_time: <%= @challenge.end_time %> <br>
-html: <br>
-
-<% @challenge.webpages.each do |webpage| %>
-  &nbsp&nbsp&nbsp <%= webpage.title_and_html_to_yaml %> <br>
-<% end %>

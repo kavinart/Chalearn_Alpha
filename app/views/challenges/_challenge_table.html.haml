@@ -13,7 +13,7 @@
         %td= challenge.description
         %td= challenge.start_time
         %td= challenge.end_time
-        %td= challenge.updated_at
+        %td= challenge.updated_at 
         %td= link_to "Show", challenge
         %td= link_to "Edit", edit_challenge_path(challenge),:id => "edit_" + challenge.id.to_s
         %td= link_to "Zip", zip_challenge_path(:id => challenge.id),:id => "zip_" + challenge.id.to_s
