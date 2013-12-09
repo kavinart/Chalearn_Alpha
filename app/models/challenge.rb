@@ -38,19 +38,23 @@ class Challenge < ActiveRecord::Base
     return yaml_hash
   end
 
+  def appendWebpage(file_path)
+   if not webpage.title.empty?
+        html_name = webpage.title + '.html'
+        File.open(file_path + html_name, "w+") do |file|
+                file.write(webpage.web_content)
+        end
+
+        #Add each html to zip
+        zipfile.add(html_name,file_path + html_name)
+    end
+  end
+
   def appendFiletoZip(file_path)
     #Creating html and zip files
     Zip::File.open(file_path + self.getTmpZipName,Zip::File::CREATE) do |zipfile|
       self.webpages.each do |webpage|
-        if not webpage.title.empty?
-            html_name = webpage.title + '.html'
-            File.open(file_path + html_name, "w+") do |file|
-                    file.write(webpage.web_content)
-            end
-
-            #Add each html to zip
-            zipfile.add(html_name,file_path + html_name)
-        end
+        self.appendWebpage(file_path)
       end
       #Add yml to the zip
       zipfile.add(self.getTmpYmlName,file_path + self.getTmpYmlName)
