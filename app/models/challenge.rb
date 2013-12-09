@@ -6,6 +6,10 @@ class Challenge < ActiveRecord::Base
   accepts_nested_attributes_for :webpages, :allow_destroy => true
   accepts_nested_attributes_for :phrases, :allow_destroy => true
 
+  def getTmpFilePath
+    return "#{Rails.root}/zip_tmp/"
+  end
+
   def getTmpZipName
     return 'tmp'+ self.id.to_s + '.zip'
   end
@@ -38,53 +42,53 @@ class Challenge < ActiveRecord::Base
     return yaml_hash
   end
 
-  def appendWebpage(file_path)
+  def appendWebpage(webpage)
    if not webpage.title.empty?
         html_name = webpage.title + '.html'
-        File.open(file_path + html_name, "w+") do |file|
+        File.open(self.getTmpFilePath + html_name, "w+") do |file|
                 file.write(webpage.web_content)
         end
 
         #Add each html to zip
-        zipfile.add(html_name,file_path + html_name)
+        zipfile.add(html_name,self.getTmpFilePath + html_name)
     end
   end
 
-  def appendFiletoZip(file_path)
+  def appendFiletoZip
     #Creating html and zip files
-    Zip::File.open(file_path + self.getTmpZipName,Zip::File::CREATE) do |zipfile|
+    Zip::File.open(self.getTmpFilePath + self.getTmpZipName,Zip::File::CREATE) do |zipfile|
       self.webpages.each do |webpage|
-        self.appendWebpage(file_path)
+        self.appendWebpage(webpage)
       end
       #Add yml to the zip
-      zipfile.add(self.getTmpYmlName,file_path + self.getTmpYmlName)
+      zipfile.add(self.getTmpYmlName,self.getTmpFilePath + self.getTmpYmlName)
     end
   end
 
-  def createZip(file_path)
+  def createZip
     yaml_hash = self.getyaml_hash
 
     #Create yaml file
-    File.open(file_path + self.getTmpYmlName, "w+") do |file|
+    File.open(self.getTmpFilePath + self.getTmpYmlName, "w+") do |file|
       file.write(yaml_hash.to_yaml)
     end
 
     #Append all yaml and html files to zip
-    self.appendFiletoZip(file_path)
+    self.appendFiletoZip
 
-    return file_path + self.getTmpZipName
+    return self.getTmpFilePath + self.getTmpZipName
   end
 
-  def tempCleanUp(file_path)
+  def tempCleanUp
     #Path parameters
-    zip_path = file_path + 'tmp'+ self.id.to_s + '.zip'
-    yaml_path = file_path + 'tmp' + self.id.to_s + '.yml'
+    zip_path = self.getTmpFilePath + 'tmp'+ self.id.to_s + '.zip'
+    yaml_path = self.getTmpFilePath + 'tmp' + self.id.to_s + '.yml'
 
     #Delete html files
     self.webpages.each do |webpage|
       if not webpage.title.empty?
         html_name = webpage.title + '.html'
-        File.delete(file_path + html_name)
+        File.delete(self.getTmpFilePath + html_name)
       end
     end
 

@@ -121,15 +121,24 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
+Then /^(?:|I )should( not)? see \/([^\/]*)\/$/ do |negate, regexp|
   regexp = Regexp.new(regexp)
 
-  if page.respond_to? :should
-    page.should have_xpath('//*', :text => regexp)
-  else
-    assert page.has_xpath?('//*', :text => regexp)
-  end
+    if page.respond_to? :should
+      if negate 
+        page.should have_no_xpath('//*', :text => regexp)
+      else
+        page.should have_xpath('//*', :text => regexp)
+      end
+    else
+      if negate 
+        assert page.has_no_xpath?('//*', :text => regexp)
+      else
+        assert page.has_xpath?('//*', :text => regexp)
+      end
+    end
 end
+
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   if page.respond_to? :should
@@ -139,39 +148,27 @@ Then /^(?:|I )should not see "([^"]*)"$/ do |text|
   end
 end
 
-Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
-  regexp = Regexp.new(regexp)
 
-  if page.respond_to? :should
-    page.should have_no_xpath('//*', :text => regexp)
-  else
-    assert page.has_no_xpath?('//*', :text => regexp)
-  end
-end
-
-Then /^the "([^"]*)" field(?: within (.*))? should contain "([^"]*)"$/ do |field, parent, value|
+Then /^the "([^"]*)" field(?: within (.*))? should( not)? contain "([^"]*)"$/ do |field, parent, negate, value|
   with_scope(parent) do
     field = find_field(field)
     field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should
-      field_value.should =~ /#{value}/
+    if negate
+      if field_value.respond_to? :should_not
+         field_value.should_not =~ /#{value}/
+      else
+        assert_no_match(/#{value}/, field_value)
+      end
     else
-      assert_match(/#{value}/, field_value)
+       if field_value.respond_to? :should
+         field_value.should =~ /#{value}/
+      else
+        assert_match(/#{value}/, field_value)
+      end
     end
   end
 end
 
-Then /^the "([^"]*)" field(?: within (.*))? should not contain "([^"]*)"$/ do |field, parent, value|
-  with_scope(parent) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should_not
-      field_value.should_not =~ /#{value}/
-    else
-      assert_no_match(/#{value}/, field_value)
-    end
-  end
-end
 
 Then /^the "([^"]*)" field should have the error "([^"]*)"$/ do |field, error_message|
   element = find_field(field)
