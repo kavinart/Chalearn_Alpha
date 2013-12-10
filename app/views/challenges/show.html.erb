@@ -1,17 +1,34 @@
-<strong> Title </strong><%= @challenge.title %> </br>
-
+<% if @challenge.title != "" %>
+  <strong> Challenge Name: </strong><%= @challenge.title %> </br>
+<% end %>
+<br>
 <ul>
 <% for webpage in @challenge.webpages %>
-  <li>
-  	<strong> Title: </strong> <%= webpage.title %> </br>
-  	<% if webpage.is_external_url? %>
-	  <strong> External URL: </strong> <%= webpage.url %>
-    <% else %>
-	  <strong> Content: </strong> <%= webpage.web_content %>
-   	<% end %>
-  </li>
+  <% if webpage.title != "" %>
+    <li>
+    	<strong> Title: </strong> <%= webpage.title %> </br>
+    	<% if webpage.is_external_url? %>
+  	     <strong> External URL: </strong> <%= webpage.url %>
+      <% else %>
+  	     <strong> Content: </strong> <%= webpage.web_content %>
+     	<% end %>
+    </li>
+  <% end %>
+
+<% end %>
+<br>
+<% @challenge.phrases.each_with_index do |phase, index| %>
+  <% if phase.label != "" %>
+      <li>
+        <strong> Phase <%= index + 1%>: </strong>  <%= phase.label %> </br>
+      </li>
+   <% end %>
 <% end %>
 </ul>
+
+
+
+
 
 <p>
   <%= link_to "Edit", edit_challenge_path(@challenge) %> |

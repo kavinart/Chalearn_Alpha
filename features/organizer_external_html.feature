@@ -15,6 +15,7 @@ Scenario: Create a challenge
 
     When I fill in "Title" with "Finance machine learning"
     And I fill in "Description" with "Model the financial crisis"
+    And I fill in "challenge_webpages_attributes_0_title" with "Test Page"
     And I check "challenge_webpages_attributes_0_is_external_url"
     When I fill in "challenge_webpages_attributes_0_url" with "http://www.test.com"
     And I press "submit"

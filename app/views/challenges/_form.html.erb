@@ -1,15 +1,15 @@
 
 <%= form_for @challenge do |f| %>
     <div id="content">
-        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-            <li class="active"><a href="#basic_info" data-toggle="tab"><i class="icon-wrench"></i> Basic Information</a></li>
-            <li><a href="#webpages" data-toggle="tab"><i class="icon-list-alt"></i> Webpages</a></li>
-            <li><a href="#phases" data-toggle="tab"><i class="icon-list"></i> Phases</a></li>
-            <li><a href="#submit" data-toggle="tab"><i class="icon-check"></i> Submit</a></li>
+        <ul id="pills" class="nav nav-pills" data-pills="pills">
+            <li class="active"><a href="#basic_info" data-toggle="pill"><i class="icon-wrench"></i> Basic Information</a></li>
+            <li><a href="#webpages" data-toggle="pill"><i class="icon-list-alt"></i> Webpages</a></li>
+            <li><a href="#phases" data-toggle="pill"><i class="icon-list"></i> Phases</a></li>
+            <li><a href="#submit" data-toggle="pill"><i class="icon-check"></i> Submit</a></li>
         </ul>
     </div>
-    <div id="my-tab-content" class="tab-content">
-        <div class="tab-pane active" id="basic_info">
+    <div id="my-pill-content" class="pill-content">
+        <div class="pill-pane active" id="basic_info">
             <p>
                 <%= f.label :title %>
                 <%= f.text_field :title %><br/>
@@ -29,7 +29,7 @@
                 <%= f.hidden_field :user_id, :value => current_user.id %>
             </p>
         </div>
-        <div class="tab-pane" id="webpages">
+        <div class="pill-pane" id="webpages">
             <p>    
                 <% i = 0 %>
                 <%= f.fields_for :webpages do |builder| %>
@@ -67,7 +67,7 @@
                 <% end %>
             </p>
         </div>
-        <div class="tab-pane" id="phases">
+        <div class="pill-pane" id="phases">
             <p>    
                 <% j = 0 %>
                 <a class="phrase_btn2_<%= j %>">Add a Phase</a>
@@ -99,7 +99,7 @@
                 <br>
             </p>
         </div>
-        <div class="tab-pane" id="submit">
+        <div class="pill-pane" id="submit">
             <p><%= f.submit "Submit" , :id => "submit", :class => "btn btn-primary" %></p>
         </div>
     </div>

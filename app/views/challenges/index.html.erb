@@ -1,11 +1,15 @@
 <% if user_signed_in? %>
-<h3>Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></h3>
-<h4>Here are your challenges</h4>
+	<h3>Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></h3>
+	<% if current_user.admin? or current_user.moderator? %>
+		<h4>All challenges listed here</h4>
+	<% else %>
+		<h4>Here are your challenges</h4>
+	<% end %>
 
-<%= render :partial => 'challenge_table' %>
+	<%= render :partial => 'challenge_table' %>
 
-<%= link_to "New Challenge", new_challenge_path %>
+	<%= link_to "New Challenge", new_challenge_path %>
 
-<% else %>
-<h3>Welcome guest, register or sign in to view your challenges</h3>
+	<% else %>
+	<h3>Welcome guest, register or sign in to view your challenges</h3>
 <% end %>

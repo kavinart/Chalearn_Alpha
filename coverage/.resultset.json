@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/user.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/user.rb": [
         1,
         null,
         null,
@@ -17,11 +17,11 @@
         1,
         null,
         1,
-        246,
+        303,
         null,
         null,
         1,
-        206,
+        261,
         null,
         null,
         1,
@@ -31,7 +31,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/application_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -44,15 +44,15 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/application_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/webpages_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/webpages_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/challenges_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/challenges_controller.rb": [
         1,
         1,
         null,
@@ -129,7 +129,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/challenge.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/challenge.rb": [
         1,
         1,
         1,
@@ -235,7 +235,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/users_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/users_controller.rb": [
         1,
         null,
         null,
@@ -272,11 +272,11 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/webpages_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/webpages_controller.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/webpage.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/webpage.rb": [
         1,
         1,
         1,
@@ -287,13 +287,13 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/welcome_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/ability.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/ability.rb": [
         1,
         1,
         null,
@@ -391,7 +391,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/phrase.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/phrase.rb": [
         1,
         1,
         1,
@@ -412,7 +412,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/task.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/task.rb": [
         1,
         1,
         1,
@@ -427,11 +427,11 @@
         null
       ]
     },
-    "timestamp": 1386648578
+    "timestamp": 1386651674
   },
   "RSpec": {
     "coverage": {
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/user.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/user.rb": [
         1,
         null,
         null,
@@ -461,7 +461,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/application_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/application_controller.rb": [
         1,
         1,
         1,
@@ -474,15 +474,15 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/application_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/helpers/webpages_helper.rb": [
+      "/home/saasbook/Desktop/chalearn/app/helpers/webpages_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/challenges_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/challenges_controller.rb": [
         1,
         1,
         null,
@@ -559,7 +559,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/challenge.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/challenge.rb": [
         1,
         1,
         1,
@@ -665,7 +665,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/users_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/users_controller.rb": [
         1,
         null,
         null,
@@ -702,11 +702,11 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/webpages_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/webpages_controller.rb": [
         1,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/webpage.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/webpage.rb": [
         1,
         1,
         1,
@@ -717,13 +717,13 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/controllers/welcome_controller.rb": [
+      "/home/saasbook/Desktop/chalearn/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/ability.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/ability.rb": [
         1,
         1,
         null,
@@ -821,7 +821,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/phrase.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/phrase.rb": [
         1,
         1,
         1,
@@ -842,7 +842,7 @@
         null,
         null
       ],
-      "/home/saasbook/CS_169/Project/Chalearn_work/app/models/task.rb": [
+      "/home/saasbook/Desktop/chalearn/app/models/task.rb": [
         1,
         1,
         1,
@@ -857,6 +857,6 @@
         null
       ]
     },
-    "timestamp": 1386648594
+    "timestamp": 1386651691
   }
 }
