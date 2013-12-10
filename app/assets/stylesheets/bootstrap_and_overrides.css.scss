@@ -2,7 +2,7 @@
 body { padding-top: 45px; }
 @import "bootstrap-responsive";
 body{ font-family: 'Open Sans'}
-.navbar{font-size: 17px }
+
 .content{opacity:0.95;}
 
 .white-caret{
@@ -14,21 +14,7 @@ body{ font-family: 'Open Sans'}
     /* remove the gradient */
     background-image: none;
 }
-/* Red * /
-$bgDefault      : #e74c3c;
-$bgHighlight    : #c0392b;
-$colDefault     : #ecf0f1;
-$colHover       : #ffbbbc; /*/
-/* Green * /
-$bgDefault      : #2ecc71;
-$bgHighlight    : #27ae60;
-$colDefault     : #ecf0f1;
-$colHover       : #d1ffed; /*/
-/* Purple * /
-$bgDefault      : #9b59b6;
-$bgHighlight    : #8e44ad;
-$colDefault     : #ecf0f1;
-$colHover       : #ecdbff; /*/
+
 /* Orange */
 $bgDefault      : #2C3E50;
 $bgHighlight    : #d35400;
@@ -49,10 +35,11 @@ $colHover       : #ffe6d1; /*/
 	background-image: none;
 	/* set font color to white */
 	color: white;
+    border: 0 !important;
 }	
 
 /* menu items */
-	/* set the background of the menu items to ... and default color to white */
+	/* set the background of the menu items to $bgDefault and default color to white */
 
 		.navbar .nav > li > a {
 		  background-color: $bgDefault;	
