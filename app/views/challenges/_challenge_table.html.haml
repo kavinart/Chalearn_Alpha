@@ -14,7 +14,7 @@
         %td= challenge.start_time
         %td= challenge.end_time
         %td= challenge.updated_at 
-        %td= link_to '', challenge, :class => "icon-picture"
-        %td= link_to '', edit_challenge_path(challenge), :class => "icon-wrench", :id => "edit_" + challenge.id.to_s
-        %td= link_to '', zip_challenge_path(:id => challenge.id), :class => "icon-download dl_zip", :id => "zip_" + challenge.id.to_s
-        %td= link_to '', challenge, :class => "icon-trash", :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + challenge.id.to_s
+        %td= link_to '', challenge, :class => "icon-picture", :title => "Show challenge"
+        %td= link_to '', edit_challenge_path(challenge), :class => "icon-wrench", :id => "edit_" + challenge.id.to_s, :title => "Edit challenge"
+        %td= link_to '', zip_challenge_path(:id => challenge.id), :class => "icon-download dl_zip", :id => "zip_" + challenge.id.to_s, :title => "Download challenge"
+        %td= link_to '', challenge, :class => "icon-trash", :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + challenge.id.to_s, :title => "Delete challenge"

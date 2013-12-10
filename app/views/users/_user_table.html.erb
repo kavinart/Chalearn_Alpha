@@ -1,0 +1,33 @@
+<table class="table table-striped table-bordered table-condensed">
+  <thead>
+    <tr> 
+      <th>User ID</th> 
+      <th>Email</th>
+      <th>Work Bench ID</th> 
+      <th>First Name</th> 
+      <th>Last Name</th> 
+      <th>Role</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td> <%= user.id %> </td>
+        <td> <%= user.email %> </td>
+        <td> <%= user.work_id %> </td>
+        <td> <%= user.first_name %> </td>
+        <td> <%= user.last_name %> </td>
+        <td> <%= user.role %> </td>
+        <% if @current_user.admin? %>
+          <td>
+            <%= link_to "", change_role_path(:id => user.id, :role => 'moderator'), :class => "icon-user", :TITLE => "Promote user to a moderator", :id => "make_mod_" + user.id.to_s %>
+          </td>
+        <% end %>
+        <!-- <td> <%= link_to '', user, :class => "icon-user", :TITLE => "Promote user to Mod"%> </td> -->
+        <td> <%= link_to '', edit_user_registration_path(user),:id => "edit_" + user.id.to_s, :class => "icon-wrench", :TITLE => "Show/Edit user" %> </td>
+        <td> <%= link_to '', user, :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + user.id.to_s, :class => "icon-trash", :TITLE => "Delete user" %> </td>
+        <!-- <A HREF="http://www.yourdomain.com/" TITLE="Your text description">Your Text</A> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
