@@ -19,6 +19,6 @@
         %td= user.role
         - if @current_user.admin?
           %td= link_to "Make Mod", change_role_path(:id => user.id, :role => 'moderator'), :id => "make_mod_" + user.id.to_s
-        %td= link_to "Show", user
-        %td= link_to "Edit", edit_user_registration_path(user),:id => "edit_" + user.id.to_s
-        %td= link_to "Delete", user, :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + user.id.to_s
+        %td= link_to '', user, :class => "icon-user"
+        %td= link_to '', edit_user_registration_path(user),:id => "edit_" + user.id.to_s, :class => "icon-wrench"
+        %td= link_to '', user, :confirm => 'Are you sure?', :method => :delete, :id => "delete_" + user.id.to_s, :class => "icon-trash"
