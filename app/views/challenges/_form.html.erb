@@ -70,11 +70,11 @@
         <div class="tab-pane" id="phases">
             <p>    
                 <% j = 0 %>
-                <a class="phrase_btn2_<%= j %>">Add a Phrase</a>
+                <a class="phrase_btn2_<%= j %>">Add a Phase</a>
                 <%= f.fields_for :phrases do |builder| %>
                    <div id="phrase_<%= j %>">
                         <%= render 'phrase_fields', :f => builder %>
-                        <a class="phrase_btn2_<%= j + 1 %>">Add a Phrase</a>
+                        <a class="phrase_btn2_<%= j + 1 %>">Add a Phase</a>
                         </br>
                    </div>
                    <script>
