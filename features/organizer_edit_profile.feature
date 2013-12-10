@@ -8,7 +8,7 @@ Feature: All users have the ability to edit their profile
 Background: organizers have been added to the database
   
   Given I am a new, authenticated user with full profile
-  And I follow "Edit Profile"
+  And I follow "Edit"
 
 Scenario: Edit profile
   Then I should be on the User Profile page
