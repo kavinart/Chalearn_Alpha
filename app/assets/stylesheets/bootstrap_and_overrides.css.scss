@@ -1,10 +1,19 @@
 @import "bootstrap";
-body { padding-top: 50px; }
+body { padding-top: 45px; }
 @import "bootstrap-responsive";
 body{ font-family: 'Open Sans'}
 .navbar{font-size: 17px }
+.content{opacity:0.95;}
 
+.white-caret{
+    border-top-color: white !important;
+    border-bottom-color: white !important;
+}
 
+.btn{
+    /* remove the gradient */
+    background-image: none;
+}
 /* Red * /
 $bgDefault      : #e74c3c;
 $bgHighlight    : #c0392b;
@@ -21,7 +30,7 @@ $bgHighlight    : #8e44ad;
 $colDefault     : #ecf0f1;
 $colHover       : #ecdbff; /*/
 /* Orange */
-$bgDefault      : #e67e22;
+$bgDefault      : #2C3E50;
 $bgHighlight    : #d35400;
 $colDefault     : #ecf0f1;
 $colHover       : #ffe6d1; /*/

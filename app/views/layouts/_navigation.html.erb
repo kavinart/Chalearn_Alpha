@@ -17,10 +17,10 @@
   	<li><%= link_to 'Wizard', new_challenge_path %></li>
   	<li><%= link_to 'My Challenges', challenges_path %></li>
   	<% end %>
-
+  	
   	<div class="btn-group">
-	  <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i><%= " " + current_user.email %></a>
-	  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+	  <a class="btn btn-info" href="#"><i class="icon-user icon-white"></i><%= " " + current_user.email %></a>
+	  <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret white-caret"></span></a>
 
 	  <ul class="dropdown-menu">
   	<ul><i class="icon-pencil"></i><%= link_to ' Edit', edit_user_registration_path %></ul>
