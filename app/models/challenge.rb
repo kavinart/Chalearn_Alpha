@@ -28,14 +28,14 @@ class Challenge < ActiveRecord::Base
     #Prepare webpage for
     yaml_html = Hash.new()
     self.webpages.each do |webpage|
-    	yaml_html[webpage.title] = webpage.webpage_yaml
+    	yaml_html[webpage.title] = webpage.webpage_yaml if webpage.title != ""
     end
     yaml_hash["html"] = yaml_html
 
     #Prepare phase hash for yaml file
     yaml_phase = Hash.new()
     self.phrases.each_with_index do |phrase, index|
-    	yaml_phase[index+1] = phrase.phase_yaml
+    	yaml_phase[index+1] = phrase.phase_yaml if phrase.label != ""
     end
     yaml_hash["phase"] = yaml_phase
 

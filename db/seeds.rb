@@ -14,6 +14,10 @@ user = User.new(:email => 'mod@gmail.com', :password => '12345678', :password_co
 user.skip_confirmation!
 user.save
 
+user = User.new(:email => 'user@gmail.com', :password => '12345678', :password_confirmation => '12345678', :role => 'organizer')
+user.skip_confirmation!
+user.save
+
 user = User.new(:email => 'user1@gmail.com', :password => '12345678', :password_confirmation => '12345678', :role => 'organizer')
 user.skip_confirmation!
 user.save
